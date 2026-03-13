@@ -334,7 +334,31 @@ function fillSirene(e){
   const commune=e.siege?.commune||'';
   const cp=e.siege?.code_postal||'';
   document.getElementById('f-ville').value=commune+(cp?' ('+cp+')':'');
-  document.getElementById('f-region').value=e.siege?.libelle_region||e.siege?.region||'';
+  // Déduire la région depuis le code postal
+  const cpNum=parseInt((cp||'').substring(0,2));
+  const regionFromCP=(cp)=>{
+    const d=parseInt((cp||'').substring(0,2));
+    if([75,77,78,91,92,93,94,95].includes(d))return'Île-de-France';
+    if([13,83,84,04,05,06].includes(d))return"Provence-Alpes-Côte d'Azur";
+    if([69,01,07,26,38,42,73,74].includes(d))return'Auvergne-Rhône-Alpes';
+    if([31,09,11,12,30,32,34,46,48,65,66,81,82].includes(d))return'Occitanie';
+    if([33,24,40,47,64].includes(d))return'Nouvelle-Aquitaine';
+    if([44,49,53,72,85].includes(d))return'Pays de la Loire';
+    if([35,22,29,56].includes(d))return'Bretagne';
+    if([59,62].includes(d))return'Hauts-de-France';
+    if([60,02,80].includes(d))return'Hauts-de-France';
+    if([67,68].includes(d))return'Grand Est';
+    if([51,08,10,52,54,55,57,88].includes(d))return'Grand Est';
+    if([21,25,39,58,70,71,89,90].includes(d))return'Bourgogne-Franche-Comté';
+    if([14,27,50,61,76].includes(d))return'Normandie';
+    if([45,18,28,36,37,41].includes(d))return'Centre-Val de Loire';
+    if([16,17,19,23,87].includes(d))return'Nouvelle-Aquitaine';
+    if([03,15,43,63].includes(d))return'Auvergne-Rhône-Alpes';
+    if(d===20||cp?.startsWith('2A')||cp?.startsWith('2B'))return'Corse';
+    if(d===971)return'Guadeloupe';if(d===972)return'Martinique';if(d===973)return'Guyane';if(d===974)return'La Réunion';if(d===976)return'Mayotte';
+    return e.siege?.libelle_region||e.siege?.region||'';
+  };
+  document.getElementById('f-region').value=regionFromCP(cp||'');
   const cj=String(e.nature_juridique||'');
   if(cj==='5499'||cj.toLowerCase().includes('sarl'))document.getElementById('f-forme').value='SARL';
   else if(cj==='5710'||cj.toLowerCase().includes('sas'))document.getElementById('f-forme').value='SAS';
