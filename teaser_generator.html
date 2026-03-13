@@ -379,7 +379,7 @@ async function gpt(messages){
   const r=await fetch('https://api.openai.com/v1/chat/completions',{
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
-    body:JSON.stringify({model:'gpt-5-mini',max_tokens:3000,response_format:{type:'json_object'},messages})
+    body:JSON.stringify({model:'gpt-5-mini',max_completion_tokens:3000,response_format:{type:'json_object'},messages})
   });
   const d=await r.json();
   if(d.error)throw new Error(d.error.message);
