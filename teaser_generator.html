@@ -296,7 +296,7 @@ let code='';
 function regenCode(){code='Projet '+CN[Math.floor(Math.random()*CN.length)];document.getElementById('cndisplay').textContent=code}
 
 // ══ SIRENE AUTO-COMPLÉTION ════════════════════════════════════════════════════
-let sireneTimer=null;
+let sireneTimer=null, sireneResults=[];
 async function onNom(val){
   if(!code)regenCode();
   clearTimeout(sireneTimer);
@@ -311,17 +311,19 @@ async function onNom(val){
       const d=await r.json();
       badge.textContent='';
       if(!d.results||!d.results.length){drop.style.display='none';return}
-      drop.innerHTML=d.results.map(e=>{
+      sireneResults=d.results;
+      drop.innerHTML=sireneResults.map((e,i)=>{
         const adrs=e.siege?.commune||'';
         const naf=e.activite_principale||'';
         const eff=e.tranche_effectif_salarie||'';
-        return `<div class="sirene-item" onclick='fillSirene(${JSON.stringify(e)})'>
-          <div class="sn">${e.nom_complet||e.nom_raison_sociale||''}</div>
-          <div class="sd">${e.siren||''} · ${naf} · ${adrs} ${eff?'· '+eff+' sal.':''}</div>
-        </div>`;
+        const nom=(e.nom_complet||e.nom_raison_sociale||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+        return '<div class="sirene-item" data-idx="'+i+'"><div class="sn">'+nom+'</div><div class="sd">'+(e.siren||'')+' · '+naf+' · '+adrs+(eff?' · '+eff+' sal.':'')+'</div></div>';
       }).join('');
+      drop.querySelectorAll('.sirene-item').forEach(el=>{
+        el.addEventListener('mousedown',ev=>{ev.preventDefault();fillSirene(sireneResults[parseInt(el.dataset.idx)])});
+      });
       drop.style.display='block';
-    }catch(err){badge.textContent='';drop.style.display='none'}
+    }catch(err){badge.textContent='';drop.style.display='none';console.error('SIRENE:',err)}
   },400);
 }
 
@@ -329,29 +331,26 @@ function fillSirene(e){
   document.getElementById('sirene-drop').style.display='none';
   document.getElementById('f-nom').value=e.nom_complet||e.nom_raison_sociale||'';
   document.getElementById('f-siren').value=e.siren||'';
-  document.getElementById('f-ville').value=e.siege?.commune||'';
-  document.getElementById('f-region').value=e.siege?.region||'';
+  const commune=e.siege?.commune||'';
   const cp=e.siege?.code_postal||'';
-  if(cp)document.getElementById('f-ville').value=(e.siege?.commune||'')+' ('+cp+')';
-  // Forme juridique
-  const cj=e.nature_juridique||'';
-  if(cj.includes('5499')||cj.includes('SARL'))document.getElementById('f-forme').value='SARL';
-  else if(cj.includes('5710')||cj.includes('SAS'))document.getElementById('f-forme').value='SAS';
-  // Date création
-  if(e.date_creation){const yr=e.date_creation.substring(0,4);document.getElementById('f-creation').value=yr}
-  // Effectif
-  const tranche=e.tranche_effectif_salarie||'';
+  document.getElementById('f-ville').value=commune+(cp?' ('+cp+')':'');
+  document.getElementById('f-region').value=e.siege?.libelle_region||e.siege?.region||'';
+  const cj=String(e.nature_juridique||'');
+  if(cj==='5499'||cj.toLowerCase().includes('sarl'))document.getElementById('f-forme').value='SARL';
+  else if(cj==='5710'||cj.toLowerCase().includes('sas'))document.getElementById('f-forme').value='SAS';
+  else if(cj==='5308')document.getElementById('f-forme').value='SA';
+  if(e.date_creation)document.getElementById('f-creation').value=String(e.date_creation).substring(0,4);
   const effMap={'00':'0','01':'1-2','02':'3-5','03':'6-9','11':'10-19','12':'20-49','21':'50-99','22':'100-199','31':'200-249','32':'250-499','41':'500-999','42':'1000-1999','51':'2000-4999','52':'5000-9999','53':'10000+'};
-  if(effMap[tranche])document.getElementById('f-effectif').value=effMap[tranche];
-  // NAF → secteur hint
+  const tr=e.tranche_effectif_salarie||'';
+  if(effMap[tr])document.getElementById('f-effectif').value=effMap[tr];
   const naf=e.activite_principale||'';
   if(naf)document.getElementById('f-soussecteur').value='NAF '+naf;
   if(!code)regenCode();
-  toast('Fiche SIRENE chargée — vérifiez et complétez','ok');
+  toast('Fiche SIRENE chargée ✓','ok');
 }
 
 // Fermer dropdown si clic ailleurs
-document.addEventListener('click',e=>{if(!e.target.closest('.nom-wrap'))document.getElementById('sirene-drop').style.display='none'});
+document.addEventListener('click',ev=>{if(!ev.target.closest('.nom-wrap'))document.getElementById('sirene-drop').style.display='none'});
 
 // ══ API KEY ════════════════════════════════════════════════════════════════════
 function saveKey(v){
