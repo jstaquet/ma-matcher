@@ -259,8 +259,8 @@ textarea{resize:vertical;min-height:64px}
     </div>
 
     <div class="sec">
-      <button class="btng" onclick="gen('teaser')">Générer le Teaser anonymisé</button>
-      <button class="btng nv" onclick="gen('analyse')" style="margin-top:7px">Générer la Préanalyse complète</button>
+      <button class="btng nv" onclick="gen('analyse')">Générer la Préanalyse complète</button>
+      <button class="btng" onclick="gen('teaser')" style="margin-top:7px">Générer le Teaser anonymisé</button>
       <button class="btns" onclick="gen('both')">Générer les deux</button>
       <button class="btns sv" onclick="saveDossier()">💾 Sauvegarder ce dossier</button>
       <button class="btns" onclick="clearForm()">Réinitialiser</button>
@@ -434,7 +434,7 @@ async function gpt(messages){
   const r=await fetch('https://api.openai.com/v1/chat/completions',{
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
-    body:JSON.stringify({model:'gpt-5-mini',max_completion_tokens:3000,response_format:{type:'json_object'},messages})
+    body:JSON.stringify({model:'gpt-5-mini',max_completion_tokens:6000,response_format:{type:'json_object'},messages})
   });
   const d=await r.json();
   if(d.error)throw new Error(d.error.message);
