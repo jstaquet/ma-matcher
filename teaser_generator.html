@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teaser Generator — CO-JAK</title>
+<title>Teaser Generator — Arcéane</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='10' font-weight='bold' fill='%23C9A84C'%3ETG%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#1B2A4A;--navy2:#243660;--gold:#C9A84C;--gold2:#E8C97A;--goldpale:#F5EDD6;--cream:#F8F4EE;--cream2:#EDE7DC;--white:#fff;--gray:#8A8F9E;--border:#D8D2C8;--green:#1E7F5E;--red:#C0392B;--sh:0 4px 24px rgba(27,42,74,.09);--shl:0 12px 48px rgba(27,42,74,.16)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);font-size:13px;min-height:100vh}
+body{font-family:'Raleway',sans-serif;background:var(--cream);color:var(--navy);font-size:13px;min-height:100vh}
 #topbar{background:var(--navy);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:fixed;top:0;left:0;right:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;letter-spacing:2px;color:var(--gold)}
+.logo{font-family:'Raleway',sans-serif;font-size:19px;font-weight:600;letter-spacing:2px;color:var(--gold)}
 .logo span{color:rgba(255,255,255,.5);font-weight:300;font-size:13px;margin-left:8px;letter-spacing:1px}
 .tbr{display:flex;align-items:center;gap:10px}
-.api-inp{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:5px 9px;color:#fff;font-size:11px;width:190px;font-family:'DM Sans',sans-serif;outline:none}
+.api-inp{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:5px 9px;color:#fff;font-size:11px;width:190px;font-family:'Raleway',sans-serif;outline:none}
 .api-inp::placeholder{color:rgba(255,255,255,.28)}
 .api-st{font-size:13px;min-width:14px}
 .sep{color:rgba(255,255,255,.15);font-size:16px}
@@ -23,7 +23,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);
 #app{margin-top:54px;display:grid;grid-template-columns:390px 1fr;min-height:calc(100vh - 54px)}
 #fp{background:var(--white);border-right:1px solid var(--border);overflow-y:auto;height:calc(100vh - 54px);position:sticky;top:54px}
 .fhd{background:var(--navy);padding:18px 22px 14px;position:sticky;top:0;z-index:10}
-.fhd h2{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#fff;margin-bottom:2px}
+.fhd h2{font-family:'Raleway',sans-serif;font-size:19px;font-weight:600;color:#fff;margin-bottom:2px}
 .fhd p{font-size:11px;color:rgba(255,255,255,.38)}
 .svbar{background:var(--goldpale);border-bottom:1px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-height:36px}
 .svlbl{font-size:9px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
@@ -39,7 +39,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);
 .fg{display:flex;flex-direction:column;gap:3px}
 .fg.full{grid-column:1/-1}
 label{font-size:10px;color:var(--gray);font-weight:500}
-input,select,textarea{padding:6px 9px;border:1px solid var(--border);border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--navy);background:#fff;outline:none;transition:border .15s;width:100%}
+input,select,textarea{padding:6px 9px;border:1px solid var(--border);border-radius:3px;font-family:'Raleway',sans-serif;font-size:12px;color:var(--navy);background:#fff;outline:none;transition:border .15s;width:100%}
 input:focus,select:focus,textarea:focus{border-color:var(--navy)}
 textarea{resize:vertical;min-height:64px}
 /* SIRENE autocomplete */
@@ -50,29 +50,29 @@ textarea{resize:vertical;min-height:64px}
 .sirene-item .sn{font-size:12px;font-weight:500;color:var(--navy)}
 .sirene-item .sd{font-size:10px;color:var(--gray);margin-top:1px}
 .sirene-badge{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--gray);pointer-events:none}
-.cnbox{background:var(--navy);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;letter-spacing:2px;padding:8px 12px;border-radius:3px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.cnbox{background:var(--navy);color:var(--gold);font-family:'Raleway',sans-serif;font-size:16px;font-weight:600;letter-spacing:2px;padding:8px 12px;border-radius:3px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
 .cnbox:hover{background:var(--navy2)}
-.cnhint{font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(255,255,255,.32);font-weight:400;letter-spacing:.5px}
+.cnhint{font-family:'Raleway',sans-serif;font-size:10px;color:rgba(255,255,255,.32);font-weight:400;letter-spacing:.5px}
 .urlrow{display:flex;gap:5px;align-items:flex-end}
 .urlrow input{flex:1}
-.btnf{padding:6px 9px;background:var(--cream2);border:1px solid var(--border);border-radius:3px;font-size:11px;cursor:pointer;color:var(--navy);white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all .15s;flex-shrink:0}
+.btnf{padding:6px 9px;background:var(--cream2);border:1px solid var(--border);border-radius:3px;font-size:11px;cursor:pointer;color:var(--navy);white-space:nowrap;font-family:'Raleway',sans-serif;transition:all .15s;flex-shrink:0}
 .btnf:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 .upz{border:2px dashed var(--border);border-radius:4px;padding:12px;text-align:center;cursor:pointer;transition:all .15s;color:var(--gray);font-size:12px}
 .upz:hover{border-color:var(--gold);background:var(--goldpale)}
 .upz.has{border-color:var(--green);background:#f0faf5;color:var(--green)}
-.btng{width:100%;padding:12px;background:var(--gold);color:var(--navy);border:none;border-radius:3px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .2s;margin-top:5px}
+.btng{width:100%;padding:12px;background:var(--gold);color:var(--navy);border:none;border-radius:3px;font-family:'Raleway',sans-serif;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .2s;margin-top:5px}
 .btng:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:var(--sh)}
 .btng.nv{background:var(--navy);color:#fff}
 .btng.nv:hover{background:var(--navy2)}
-.btns{width:100%;padding:8px;background:transparent;color:var(--navy);border:1px solid var(--border);border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;margin-top:5px}
+.btns{width:100%;padding:8px;background:transparent;color:var(--navy);border:1px solid var(--border);border-radius:3px;font-family:'Raleway',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;margin-top:5px}
 .btns:hover{background:var(--cream)}
 .btns.sv{border-color:var(--green);color:var(--green)}
 .btns.sv:hover{background:var(--green);color:#fff}
 #op{padding:26px 30px;overflow-y:auto}
 .ohd{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.otitle{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:var(--navy)}
+.otitle{font-family:'Raleway',sans-serif;font-size:23px;font-weight:600;color:var(--navy)}
 .oacts{display:flex;gap:7px;flex-wrap:wrap}
-.btna{padding:7px 13px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--navy);transition:all .15s}
+.btna{padding:7px 13px;border-radius:3px;font-family:'Raleway',sans-serif;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--navy);transition:all .15s}
 .btna:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 .btna.gd{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 .btna.gd:hover{background:var(--gold2)}
@@ -82,29 +82,29 @@ textarea{resize:vertical;min-height:64px}
 .otab.active{color:var(--gold);border-bottom-color:var(--gold)}
 .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:380px;color:var(--gray);text-align:center;gap:10px}
 .empty .ic{font-size:44px;opacity:.32}
-.empty h3{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);opacity:.42}
+.empty h3{font-family:'Raleway',sans-serif;font-size:20px;color:var(--navy);opacity:.42}
 .empty p{font-size:12px;max-width:260px;line-height:1.6}
 .gening{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:380px;gap:16px}
 .spin{width:34px;height:34px;border:3px solid var(--cream2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.genl{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);opacity:.58}
+.genl{font-family:'Raleway',sans-serif;font-size:17px;color:var(--navy);opacity:.58}
 .gens{font-size:11px;color:var(--gray);animation:pulse 1.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-.docw{font-family:'DM Sans',sans-serif;color:var(--navy);max-width:760px;margin:0 auto;background:#fff;border-radius:5px;box-shadow:var(--sh);overflow:hidden}
+.docw{font-family:'Raleway',sans-serif;color:var(--navy);max-width:760px;margin:0 auto;background:#fff;border-radius:5px;box-shadow:var(--sh);overflow:hidden}
 .dochd{background:var(--navy);padding:28px 38px 24px;position:relative}
 .dochd::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold)}
 .docconf{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:12px}
-.doct{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff;line-height:1.1;margin-bottom:5px}
+.doct{font-family:'Raleway',sans-serif;font-size:28px;font-weight:600;color:#fff;line-height:1.1;margin-bottom:5px}
 .docst{font-size:13px;color:rgba(255,255,255,.48);letter-spacing:.5px}
-.doccn{position:absolute;top:28px;right:38px;font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--gold);letter-spacing:1px;text-align:right}
-.doccn .lb{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.26);display:block;margin-bottom:3px}
+.doccn{position:absolute;top:28px;right:38px;font-family:'Raleway',sans-serif;font-size:12px;color:var(--gold);letter-spacing:1px;text-align:right}
+.doccn .lb{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.26);display:block;margin-bottom:3px}
 .docb{padding:26px 38px}
 .dsec{margin-bottom:22px}
 .dstitle{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--goldpale)}
 .kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px}
 .kcard{background:var(--cream);border-radius:4px;padding:11px 13px;border-bottom:2px solid var(--border)}
 .klbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
-.kval{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--navy);line-height:1}
+.kval{font-family:'Raleway',sans-serif;font-size:19px;font-weight:600;color:var(--navy);line-height:1}
 .ksub{font-size:10px;color:var(--gray);margin-top:2px}
 .prose{font-size:13px;line-height:1.75;color:#2c3e50}
 .prose p{margin-bottom:9px}
@@ -125,7 +125,7 @@ textarea{resize:vertical;min-height:64px}
 .fintbl td{padding:6px 11px;border-bottom:1px solid var(--cream2)}
 .fintbl tr:last-child td{border-bottom:none}
 .fintbl tr:hover td{background:var(--cream)}
-.fintbl .v{text-align:right;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600}
+.fintbl .v{text-align:right;font-family:'Raleway',sans-serif;font-size:13px;font-weight:600}
 .fintbl .p{text-align:right;font-size:11px;color:var(--gray)}
 .fintbl .hl td{background:var(--goldpale)!important;font-weight:600}
 .bilan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -143,7 +143,12 @@ textarea{resize:vertical;min-height:64px}
 </head>
 <body>
 <div id="topbar">
-  <div class="logo">M&A <span>Teaser Generator</span></div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <svg height="28" viewBox="0 0 120 28" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="22" font-family="Raleway,sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#C9A84C">ARCÉANE</text>
+    </svg>
+    <span style="color:rgba(255,255,255,.35);font-size:11px;font-family:Raleway,sans-serif;letter-spacing:1px;font-weight:300">Teaser Generator</span>
+  </div>
   <div class="tbr">
     <span style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)">OpenAI</span>
     <input type="password" id="apikey" class="api-inp" placeholder="sk-..." oninput="saveKey(this.value)">
@@ -177,7 +182,7 @@ textarea{resize:vertical;min-height:64px}
         </div>
         <div class="fg"><label>Nom de code (cliquer = régénérer)</label><div class="cnbox" onclick="regenCode()"><span id="cndisplay">—</span><span class="cnhint">↻ régénérer</span></div></div>
         <div class="fg2">
-          <div class="fg"><label>Statut</label><select id="f-statut"><option>Teaser à créer</option><option>Teaser envoyé</option><option>NDA signé</option><option>Préanalyse vendue</option><option>Mandat signé</option><option>Deal closing</option><option>Abandonné</option></select></div>
+          <div class="fg"><label>Statut</label><select id="f-statut"><option>Teaser à créer</option><option>Teaser envoyé</option><option>NDA signé</option><option>Préanalyse-Opportunité vendue</option><option>Mandat signé</option><option>Deal closing</option><option>Abandonné</option></select></div>
           <div class="fg"><label>Date entrée</label><input id="f-date" type="text"></div>
         </div>
       </div>
@@ -259,8 +264,8 @@ textarea{resize:vertical;min-height:64px}
     </div>
 
     <div class="sec">
-      <button class="btng nv" onclick="gen('analyse')">Générer la Préanalyse complète</button>
-      <button class="btng" onclick="gen('teaser')" style="margin-top:7px">Générer l'Opportunité de rachat</button>
+      <button class="btng nv" onclick="gen('analyse')">Générer la Préanalyse-Opportunité de rachat</button>
+      <button class="btng" onclick="gen('teaser')" style="margin-top:7px">Générer le Teaser-Opportunité de rachat</button>
       <button class="btns" onclick="gen('both')">Générer les deux</button>
       <button class="btns sv" onclick="saveDossier()">💾 Sauvegarder ce dossier</button>
       <button class="btns" onclick="clearForm()">Réinitialiser</button>
@@ -278,8 +283,8 @@ textarea{resize:vertical;min-height:64px}
     </div>
   </div>
   <div class="otabs" id="otabs" style="display:none">
-    <div class="otab active" id="tab-t" onclick="switchTab('t')">Opportunité de rachat</div>
-    <div class="otab" id="tab-a" onclick="switchTab('a')">Préanalyse</div>
+    <div class="otab active" id="tab-t" onclick="switchTab('t')">Teaser-Opportunité de rachat</div>
+    <div class="otab" id="tab-a" onclick="switchTab('a')">Préanalyse-Opportunité de rachat</div>
   </div>
   <div class="empty" id="emp"><div class="ic">✦</div><h3>Prêt à générer</h3><p>Renseignez la fiche et cliquez sur Générer.</p></div>
   <div class="gening" id="gening" style="display:none"><div class="spin"></div><div class="genl">Génération en cours…</div><div class="gens" id="genstep">Analyse des données</div></div>
@@ -500,7 +505,13 @@ function renderTeaser(c,d){
   <div class="ednotice">✏️ <strong>Teaser éditable</strong> — Cliquez sur n'importe quel champ pour modifier directement</div>
   <div class="docw">
     <div class="dochd">
-      <div class="docconf">Opportunité de rachat — Document confidentiel</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <svg height="22" viewBox="0 0 110 22" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="17" font-family="Raleway,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#C9A84C">ARCÉANE</text>
+        </svg>
+        <span style="color:rgba(255,255,255,.35);font-size:10px;font-family:Raleway,sans-serif;letter-spacing:1.5px;text-transform:uppercase;font-weight:400">Roubaix</span>
+      </div>
+      <div class="docconf">Teaser-Opportunité de rachat — Document confidentiel</div>
       <div class="doct" contenteditable="true" spellcheck="false">${d.titre}</div>
       <div class="docst" contenteditable="true">${d.secteur_affiche} · ${d.region_affichee}</div>
       <div class="doccn"><span class="lb">Nom de code</span>${c.code}</div>
@@ -517,7 +528,7 @@ function renderTeaser(c,d){
     </div>
     <div class="docft">
       <div>
-        <strong style="font-size:11px;color:var(--navy)" contenteditable="true" spellcheck="false">ARCEANE Roubaix — Conseil M&A</strong><br>
+        <strong style="font-size:11px;color:var(--navy)" contenteditable="true" spellcheck="false">ARCEANE Roubaix</strong><br>
         ${c.contact?'Contact : '+c.contact+(c.fonction?' ('+c.fonction+')':'')+'<br>':''}
         ${c.email?c.email+(c.tel?' · '+c.tel:'')+'<br>':''}
         Document confidentiel · ${today}
@@ -526,7 +537,7 @@ function renderTeaser(c,d){
         <strong style="font-size:11px;color:var(--navy)">Pour aller plus loin</strong><br>
         Fiche détaillée & préanalyse disponibles<br>
         sur demande — sous NDA signé<br>
-        <span style="color:var(--gold);font-weight:600">→ Contactez votre conseil CO-JAK</span>
+        <span style="color:var(--gold);font-weight:600">→ Contactez ARCEANE Roubaix</span>
       </div>
     </div>
   </div>`;
@@ -560,14 +571,40 @@ function renderAnalyse(c,d,fin){
   document.getElementById('ac').innerHTML=`
   <div class="docw">
     <div class="dochd">
-      <div class="docconf">Note de préanalyse — Confidentiel — NDA signataires uniquement</div>
-      <div class="doct">Préanalyse — ${c.code}</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <svg height="22" viewBox="0 0 110 22" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="17" font-family="Raleway,sans-serif" font-size="17" font-weight="700" letter-spacing="2.5" fill="#C9A84C">ARCÉANE</text>
+        </svg>
+        <span style="color:rgba(255,255,255,.35);font-size:10px;font-family:Raleway,sans-serif;letter-spacing:1.5px;text-transform:uppercase;font-weight:400">Roubaix</span>
+      </div>
+      <div class="docconf">Préanalyse-Opportunité de rachat — Confidentiel — NDA signataires</div>
+      <div class="doct">Préanalyse-Opportunité de rachat — ${c.nom}</div>
       <div class="docst">${c.secteur} · ${c.region}</div>
-      <div class="doccn"><span class="lb">Référence</span>${c.code}</div>
+      <div class="doccn"><span class="lb">SIREN</span>${c.siren||c.code}</div>
     </div>
     <div class="docb">
       <div class="dsec"><div class="dstitle">Synthèse exécutive</div><div class="dhigh">${d.synthese}</div></div>
       <div class="dsec"><div class="dstitle">Activité & Positionnement</div><div class="prose"><p>${d.activite_detail}</p><p>${d.position_marche}</p></div></div>
+      ${c.web ? `<div class="dsec">
+        <div class="dstitle">Présence digitale — Aperçu site web</div>
+        <div style="border:1px solid var(--border);border-radius:4px;overflow:hidden">
+          <div style="background:var(--navy);padding:6px 12px;display:flex;align-items:center;gap:8px">
+            <div style="display:flex;gap:4px">
+              <div style="width:9px;height:9px;border-radius:50%;background:#ff5f57"></div>
+              <div style="width:9px;height:9px;border-radius:50%;background:#febc2e"></div>
+              <div style="width:9px;height:9px;border-radius:50%;background:#28c840"></div>
+            </div>
+            <div style="background:rgba(255,255,255,.1);border-radius:3px;padding:2px 10px;font-size:10px;color:rgba(255,255,255,.65);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.web}</div>
+          </div>
+          <img
+            src="https://api.screenshotmachine.com/?key=demo&url=${encodeURIComponent(c.web)}&dimension=1280x640&format=jpg&cacheLimit=0"
+            alt="Aperçu ${c.nom}"
+            style="width:100%;display:block;max-height:320px;object-fit:cover;object-position:top"
+            onerror="this.outerHTML='<div style=\'padding:20px;text-align:center;background:var(--cream);font-size:12px;color:var(--gray)\'>Aperçu indisponible — <a href=\''+c.web+'\' target=\'_blank\' style=\'color:var(--gold)\'>Visiter \${c.nom} ↗</a></div>'"
+          >
+        </div>
+        <div style="margin-top:5px;text-align:right;font-size:10px"><a href="${c.web}" target="_blank" style="color:var(--gold)">${c.web} ↗</a></div>
+      </div>` : ''}
       <div class="dsec">
         <div class="dstitle">Compte d'exploitation${annee?' — '+annee:''}</div>
         <div class="prose" style="margin-bottom:10px"><p>${f.analyse}</p></div>
@@ -587,7 +624,7 @@ function renderAnalyse(c,d,fin){
       <div class="dsec"><div class="dstitle">Prochaines étapes</div><ul class="dlist">${d.etapes.map(e=>`<li>${e}</li>`).join('')}</ul></div>
       <div class="dsec"><div class="dstitle">Conclusion</div><div class="dhigh">${d.conclusion}</div></div>
     </div>
-    <div class="docft"><div>Note préparée par CO-JAK · ${today}<br>Strictement confidentiel — NDA signataires uniquement</div><div style="text-align:right">${c.contact||'CO-JAK'}<br>${c.email||''}</div></div>
+    <div class="docft"><div>Note préparée par ARCEANE Roubaix · ${today}<br>Strictement confidentiel — NDA signataires uniquement</div><div style="text-align:right">${c.contact||'ARCEANE Roubaix'}<br>${c.email||''}</div></div>
   </div>`;
 }
 
