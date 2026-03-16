@@ -545,6 +545,8 @@ Site: ${c.web} | Pappers: ${c.pappers}
 
 JSON:{"synthese":"4-5 phrases","activite_detail":"3-4 phrases","position_marche":"2-3 phrases","financiers":{"analyse":"3-4 phrases analyse financière","ce":[{"poste":"Chiffre d'affaires","valeur":"X k€","pct":"100%","hl":true},{"poste":"Achats et charges externes","valeur":"X k€ ou NC","pct":"X%","hl":false},{"poste":"Charges de personnel","valeur":"X k€ ou NC","pct":"X%","hl":false},{"poste":"EBITDA","valeur":"X k€","pct":"X%","hl":true},{"poste":"Dotations aux amortissements","valeur":"X k€ ou NC","pct":"","hl":false},{"poste":"Résultat d'exploitation","valeur":"X k€ ou NC","pct":"X%","hl":false},{"poste":"Résultat net","valeur":"X k€","pct":"X%","hl":true}],"bilan_actif":[{"poste":"Immobilisations nettes","valeur":"X k€ ou NC","hl":false},{"poste":"Stocks","valeur":"X k€ ou NC","hl":false},{"poste":"Créances clients","valeur":"X k€ ou NC","hl":false},{"poste":"Trésorerie","valeur":"X k€","hl":false},{"poste":"Total actif","valeur":"X k€","hl":true}],"bilan_passif":[{"poste":"Capitaux propres","valeur":"X k€","hl":false},{"poste":"Dettes financières","valeur":"X k€","hl":false},{"poste":"Dettes fournisseurs","valeur":"X k€ ou NC","hl":false},{"poste":"Total passif","valeur":"X k€","hl":true}],"ratios":[{"label":"Marge EBITDA","valeur":"X%","commentaire":"..."},{"label":"Marge nette","valeur":"X%","commentaire":"..."},{"label":"EV/EBITDA estimé","valeur":"Xx","commentaire":"..."},{"label":"Valo indicative","valeur":"X k€","commentaire":"..."}]},"atouts":[{"titre":"...","detail":"..."},{"titre":"...","detail":"..."},{"titre":"...","detail":"..."},{"titre":"...","detail":"..."}],"risques":[{"titre":"...","detail":"...","niv":"Faible"},{"titre":"...","detail":"...","niv":"Modéré"},{"titre":"...","detail":"...","niv":"Élevé"}],"these":"3-4 phrases","leviers":["...","...","..."],"etapes":["...","...","..."],"conclusion":"2-3 phrases"}`};
   lastAnalyse=await gpt([sys,u]);renderAnalyse(c,lastAnalyse,fin);
+  // Injecter les données extraites dans le formulaire
+  if(fin) injectFinancials(fin, lastAnalyse);
 }
 
 function renderAnalyse(c,d,fin){
@@ -587,6 +589,42 @@ function renderAnalyse(c,d,fin){
     </div>
     <div class="docft"><div>Note préparée par CO-JAK · ${today}<br>Strictement confidentiel — NDA signataires uniquement</div><div style="text-align:right">${c.contact||'CO-JAK'}<br>${c.email||''}</div></div>
   </div>`;
+}
+
+// ══ INJECT FINANCIALS INTO FORM ══════════════════════════════════════════════
+function injectFinancials(fin, analyse){
+  const set=(id,val)=>{if(val!=null&&val!==''&&val!==0){const el=document.getElementById(id);if(el&&!el.value)el.value=val}};
+  const setForce=(id,val)=>{if(val!=null&&val!==''){const el=document.getElementById(id);if(el)el.value=val}};
+
+  // Année
+  if(fin.annee) setForce('f-annee', fin.annee);
+
+  // Conversion : les valeurs du PDF sont en €, on veut k€
+  const toK = v => v ? Math.round(v/1000) : null;
+
+  // CA
+  if(fin.ca) set('f-ca', toK(fin.ca));
+
+  // EBITDA — calculer si pas direct : REX + amortissements
+  if(fin.ebitda) set('f-ebitda', toK(fin.ebitda));
+  else if(fin.rex!=null && fin.amortissements!=null) set('f-ebitda', toK(fin.rex + Math.abs(fin.amortissements)));
+
+  // Résultat net
+  if(fin.rn) set('f-rn', toK(fin.rn));
+
+  // Capitaux propres
+  if(fin.cp) set('f-cp', toK(fin.cp));
+
+  // Dettes financières
+  if(fin.dettes_fin) set('f-dette', toK(fin.dettes_fin));
+
+  // Note financière auto si vide
+  const noteEl = document.getElementById('f-finnote');
+  if(noteEl && !noteEl.value && fin.extraits) noteEl.value = fin.extraits;
+
+  // Feedback
+  const filled = ['f-ca','f-ebitda','f-rn','f-cp','f-dette','f-annee'].filter(id=>{const el=document.getElementById(id);return el&&el.value});
+  if(filled.length) toast('Formulaire mis à jour — '+filled.length+' champs renseignés depuis le document','ok');
 }
 
 // ══ SAVE / LOAD ════════════════════════════════════════════════════════════════
