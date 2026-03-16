@@ -260,7 +260,7 @@ textarea{resize:vertical;min-height:64px}
 
     <div class="sec">
       <button class="btng nv" onclick="gen('analyse')">Générer la Préanalyse complète</button>
-      <button class="btng" onclick="gen('teaser')" style="margin-top:7px">Générer le Teaser anonymisé</button>
+      <button class="btng" onclick="gen('teaser')" style="margin-top:7px">Générer l'Opportunité de rachat</button>
       <button class="btns" onclick="gen('both')">Générer les deux</button>
       <button class="btns sv" onclick="saveDossier()">💾 Sauvegarder ce dossier</button>
       <button class="btns" onclick="clearForm()">Réinitialiser</button>
@@ -278,7 +278,7 @@ textarea{resize:vertical;min-height:64px}
     </div>
   </div>
   <div class="otabs" id="otabs" style="display:none">
-    <div class="otab active" id="tab-t" onclick="switchTab('t')">Teaser anonymisé</div>
+    <div class="otab active" id="tab-t" onclick="switchTab('t')">Opportunité de rachat</div>
     <div class="otab" id="tab-a" onclick="switchTab('a')">Préanalyse</div>
   </div>
   <div class="empty" id="emp"><div class="ic">✦</div><h3>Prêt à générer</h3><p>Renseignez la fiche et cliquez sur Générer.</p></div>
@@ -500,7 +500,7 @@ function renderTeaser(c,d){
   <div class="ednotice">✏️ <strong>Teaser éditable</strong> — Cliquez sur n'importe quel champ pour modifier directement</div>
   <div class="docw">
     <div class="dochd">
-      <div class="docconf">Document confidentiel — Diffusion restreinte</div>
+      <div class="docconf">Opportunité de rachat — Document confidentiel</div>
       <div class="doct" contenteditable="true" spellcheck="false">${d.titre}</div>
       <div class="docst" contenteditable="true">${d.secteur_affiche} · ${d.region_affichee}</div>
       <div class="doccn"><span class="lb">Nom de code</span>${c.code}</div>
@@ -515,7 +515,20 @@ function renderTeaser(c,d){
       </div>
       <div style="margin-top:12px">${d.tags.map(t=>`<span class="tag" contenteditable="true">${t}</span>`).join('')}</div>
     </div>
-    <div class="docft"><div>Document préparé par CO-JAK · ${today}<br>Confidentiel — ne peut être transmis sans accord préalable</div><div style="text-align:right">Coordonnées sur demande<br>Sous NDA signé</div></div>
+    <div class="docft">
+      <div>
+        <strong style="font-size:11px;color:var(--navy)">CO-JAK — Conseil M&A</strong><br>
+        ${c.contact?'Contact : '+c.contact+(c.fonction?' ('+c.fonction+')':'')+'<br>':''}
+        ${c.email?c.email+(c.tel?' · '+c.tel:'')+'<br>':''}
+        Document confidentiel · ${today}
+      </div>
+      <div style="text-align:right;font-size:10px;line-height:1.7">
+        <strong style="font-size:11px;color:var(--navy)">Pour aller plus loin</strong><br>
+        Fiche détaillée & préanalyse disponibles<br>
+        sur demande — sous NDA signé<br>
+        <span style="color:var(--gold);font-weight:600">→ Contactez votre conseil CO-JAK</span>
+      </div>
+    </div>
   </div>`;
 }
 
