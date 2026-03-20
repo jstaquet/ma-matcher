@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCÉANE — Matcher</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjMwIDgwIDEwMCA4MCI+CiAgPHJlY3Qgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxNjAiIHJ4PSIxOCIgZmlsbD0iIzFCMkE0QSIgeD0iLTEwIiB5PSI3MCIvPgogIDxwYXRoIGZpbGwtcnVsZT0ibm9uemVybyIgZmlsbD0icmdiKDk3LjE3NTU5OCUsIDYxLjMzMTE3NyUsIDUuNjQ3Mjc4JSkiIGZpbGwtb3BhY2l0eT0iMSIgZD0iTSAxMTMuNTM1MTU2IDE0NS43ODUxNTYgQyAxMTAuNTU4NTk0IDE0NS44NDc2NTYgMTA3LjY5MTQwNiAxNDUuMTYwMTU2IDEwNS4yOTI5NjkgMTQzLjczODI4MSBDIDEwMi44NzUgMTQyLjMzNTkzOCAxMDAuOTMzNTk0IDE0MC4yNDIxODggOTkuMzQzNzUgMTM3LjkwMjM0NCBDIDk4LjU1MDc4MSAxMzYuNzMwNDY5IDk3LjgzNTkzOCAxMzUuNDg4MjgxIDk3LjE5NTMxMiAxMzQuMjAzMTI1IEMgOTYuODc4OTA2IDEzMy41NjI1IDk2LjU3NDIxOSAxMzIuOTEwMTU2IDk2LjI4MTI1IDEzMi4yNTc4MTIgQyA5Ni4xNDA2MjUgMTMxLjkyOTY4OCA5Ni4wMDM5MDYgMTMxLjYwMTU2MiA5NS44NzUgMTMxLjI3MzQzOCBMIDk1LjUxOTUzMSAxMzAuMzQzNzUgTCA5My41ODk4NDQgMTI1LjMyODEyNSBMIDkxLjM2NzE4OCAxMjkuNzE0ODQ0IEMgODguODcxMDk0IDEzNC42NDA2MjUgODQuNzUgMTM4Ljg0Mzc1IDc5LjkyNTc4MSAxNDEuOTE0MDYyIEMgNzcuNTExNzE5IDE0My40NTMxMjUgNzQuOTIxODc1IDE0NC43NSA3Mi4xOTUzMTIgMTQ1LjcyMjY1NiBDIDY5LjQ2ODc1IDE0Ni42ODc1IDY2LjU5Mzc1IDE0Ny4zMzU5MzggNjMuNjgzNTk0IDE0Ny40MjE4NzUgQyA2MC43NzczNDQgMTQ3LjUyMzQzOCA1Ny44NDM3NSAxNDcuMDkzNzUgNTUuMTM2NzE5IDE0Ni4xMDkzNzUgQyA1My43ODUxNTYgMTQ1LjYxNzE4OCA1Mi41IDE0NC45Njg3NSA1MS4zMjQyMTkgMTQ0LjE3OTY4OCBDIDUwLjEzNjcxOSAxNDMuNDA2MjUgNDkuMDgyMDMxIDE0Mi40Njg3NSA0OC4xNzk2ODggMTQxLjQyOTY4OCBDIDQ2LjM1OTM3NSAxMzkuMzU1NDY5IDQ1LjIzMDQ2OSAxMzYuODE2NDA2IDQ0Ljg0NzY1NiAxMzQuMjczNDM4IEMgNDQuNDU3MDMxIDEzMS43MTQ4NDQgNDQuODA4NTk0IDEyOS4xNjc5NjkgNDUuNTg1OTM4IDEyNi44MTY0MDYgQyA0Ny4yMDcwMzEgMTIyLjA4MjAzMSA1MC4zODI4MTIgMTE4LjEzNjcxOSA1My45Mjk2ODggMTE0LjgwODU5NCBDIDU0LjM2MzI4MSAxMTQuMzgyODEyIDU0LjgzOTg0NCAxMTMuOTg4MjgxIDU1LjI4NTE1NiAxMTMuNTc4MTI1IEMgNTUuNzY1NjI1IDExMy4xOTE0MDYgNTYuMjE0ODQ0IDExMi43ODUxNTYgNTYuNzAzMTI1IDExMi40MTAxNTYgQyA1Ny42NTIzNDQgMTExLjY0NDUzMSA1OC42MzY3MTkgMTEwLjkxNDA2MiA1OS42NTIzNDQgMTEwLjIzMDQ2OSBDIDYxLjY3MTg3NSAxMDguODM1OTM4IDYzLjgwNDY4OCAxMDcuNTkzNzUgNjYuMDA3ODEyIDEwNi41MzUxNTYgQyA3MC40MjE4NzUgMTA0LjQyNTc4MSA3NS4xNjAxNTYgMTAzLjAxMTcxOSA4MC4xMDU0NjkgMTAyLjY1NjI1IEMgODUuMDM1MTU2IDEwMi4zOTQ1MzEgOTAuMjAzMTI1IDEwMy4xMzI4MTIgOTUuMzU1NDY5IDEwNi44NTkzNzUgQyA5NC44MzU5MzggMTAzLjcxNDg0NCA5Mi45OTIxODggMTAwLjcxNDg0NCA5MC40NjA5MzggOTguMzk4NDM4IEMgODcuOTI5Njg4IDk2LjA1ODU5NCA4NC43MzQzNzUgOTQuNDE3OTY5IDgxLjM5NDUzMSA5My40NDkyMTkgQyA3OC4wNTA3ODEgOTIuNDgwNDY5IDc0LjUyNzM0NCA5Mi4xNTIzNDQgNzEuMDg1OTM4IDkyLjM5NDUzMSBDIDY3LjYzMjgxMiA5Mi42MjEwOTQgNjQuMjM4MjgxIDkzLjM5NDUzMSA2MS4wMjczNDQgOTQuNTk3NjU2IEMgNTQuNjEzMjgxIDk3LjAxNTYyNSA0OC44NTU0NjkgMTAxLjEwNTQ2OSA0NC42MjUgMTA2LjU4MjAzMSBDIDQyLjUyMzQzOCAxMDkuMzEyNSA0MC44MjAzMTIgMTEyLjM3NSAzOS42NTIzNDQgMTE1LjY0NDUzMSBDIDM4LjQ4ODI4MSAxMTguOTE0MDYyIDM3Ljg3ODkwNiAxMjIuNDAyMzQ0IDM3LjkzNzUgMTI1Ljg3NSBDIDM4LjAwMzkwNiAxMjkuMzQ3NjU2IDM4LjgwNDY4OCAxMzIuODAwNzgxIDQwLjMxMjUgMTM1LjgxMjUgQyA0MS44MTY0MDYgMTM4LjgyODEyNSA0NC4wMDc4MTIgMTQxLjM1NTQ2OSA0Ni41MzkwNjIgMTQzLjIzNDM3NSBDIDQ3LjgwNDY4OCAxNDQuMTcxODc1IDQ5LjE2MDE1NiAxNDQuOTQxNDA2IDUwLjU0Njg3NSAxNDUuNTg1OTM4IEMgNTEuOTQ5MjE5IDE0Ni4yMTA5MzggNTMuMzkwNjI1IDE0Ni42OTE0MDYgNTQuODQzNzUgMTQ3LjA1ODU5NCBDIDU3Ljc1NzgxMiAxNDcuNzg1MTU2IDYwLjczODI4MSAxNDguMDc0MjE5IDYzLjY5OTIxOSAxNDcuOTc2NTYyIEMgNjYuNjYwMTU2IDE0Ny45MDYyNSA2OS42MTcxODggMTQ3LjUzMTI1IDcyLjUyNzM0NCAxNDYuODM5ODQ0IEMgNzMuOTc2NTYyIDE0Ni40ODA0NjkgNzUuNDA2MjUgMTQ2LjAzNTE1NiA3Ni44MjAzMTIgMTQ1LjUyMzQzOCBDIDc4LjIyNjU2MiAxNDQuOTk2MDk0IDc5LjYwMTU2MiAxNDQuMzg2NzE5IDgwLjk1MzEyNSAxNDMuNzE4NzUgQyA4My42NDA2MjUgMTQyLjM0NzY1NiA4Ni4xOTUzMTIgMTQwLjY5MTQwNiA4OC42MDE1NjIgMTM4Ljc5Njg3NSBDIDg5LjgwODU5NCAxMzcuODQ3NjU2IDkwLjk1NzAzMSAxMzYuODIwMzEyIDkyLjA1NDY4OCAxMzUuNzI2NTYyIEMgOTIuMTk1MzEyIDEzNS41OTM3NSA5Mi4zMjQyMTkgMTM1LjQ0NTMxMiA5Mi40NjA5MzggMTM1LjMwNDY4OCBDIDkyLjYzMjgxMiAxMzUuNjY0MDYyIDkyLjgwODU5NCAxMzYuMDE5NTMxIDkyLjk5NjA5NCAxMzYuMzcxMDk0IEMgOTMuNzgxMjUgMTM3Ljg0NzY1NiA5NC42OTkyMTkgMTM5LjI2MTcxOSA5NS43NjU2MjUgMTQwLjU3ODEyNSBDIDk3Ljg3ODkwNiAxNDMuMjA3MDMxIDEwMC42MzI4MTIgMTQ1LjQ1MzEyNSAxMDMuODI4MTI1IDE0Ni43NjU2MjUgQyAxMDUuNDIxODc1IDE0Ny40MDYyNSAxMDcuMTA1NDY5IDE0Ny44MjAzMTIgMTA4Ljc4OTA2MiAxNDcuOTUzMTI1IEMgMTEwLjQ3MjY1NiAxNDguMDg5ODQ0IDExMi4xNDQ1MzEgMTQ3Ljk1MzEyNSAxMTMuNzQyMTg4IDE0Ny42MzY3MTkgQyAxMTYuOTUzMTI1IDE0Ny4wMTE3MTkgMTE5Ljg2NzE4OCAxNDUuNjIxMDk0IDEyMi40ODQzNzUgMTQzLjkyMTg3NSBDIDExOS41NDY4NzUgMTQ0Ljk4MDQ2OSAxMTYuNTExNzE5IDE0NS43MTA5MzggMTEzLjUzNTE1NiAxNDUuNzg1MTU2ICIvPgo8L3N2Zz4=">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script src="https://apis.google.com/js/api.js" async onload="gapiLoaded()"></script>
+<style>
+:root{
+  --navy:#1B2A4A;--navy2:#243660;--gold:#C9A84C;--gold2:#E8C97A;--goldpale:#F5EDD6;
+  --cream:#F8F4EE;--cream2:#EDE7DC;--white:#fff;--gray:#8A8F9E;--border:#D8D2C8;
+  --green:#1E7F5E;--red:#C0392B;--sh:0 4px 24px rgba(27,42,74,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Raleway',sans-serif;background:var(--cream);color:var(--navy);font-size:13px;min-height:100vh}
+
+/* ── TOPBAR ── */
+#topbar{background:var(--navy);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:fixed;top:0;left:0;right:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
+.logo{font-family:'Raleway',sans-serif;font-size:18px;font-weight:600;letter-spacing:2px;color:var(--gold)}
+.logo span{color:rgba(255,255,255,.45);font-weight:300;font-size:12px;margin-left:8px;letter-spacing:1px}
+.logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-left:4px}
+.tbr{display:flex;align-items:center;gap:10px}
+.api-inp{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:5px 9px;color:#fff;font-size:11px;width:200px;font-family:'Raleway',sans-serif;outline:none}
+.api-inp::placeholder{color:rgba(255,255,255,.28)}
+.api-st{font-size:13px;min-width:14px}
+.tbl{color:var(--gold);text-decoration:none;font-size:11px;border:1px solid rgba(201,168,76,.4);padding:4px 10px;border-radius:3px}
+
+/* ── LAYOUT 3 COLONNES ── */
+#app{margin-top:52px;display:grid;grid-template-columns:360px 1fr 420px;min-height:calc(100vh - 52px);transition:grid-template-columns .3s ease}
+#app.drawer-open{grid-template-columns:min(66vw,900px) 1fr 0px}
+
+/* ── COLONNE GÉNÉRIQUE ── */
+.col{height:calc(100vh - 52px);overflow-y:auto;position:sticky;top:52px}
+#col-res{transition:all .3s ease;overflow:hidden}
+#app.drawer-open #col-res{min-width:0;opacity:0;pointer-events:none}
+.col-hd{background:var(--navy);padding:14px 18px;position:sticky;top:0;z-index:10}
+.col-hd h2{font-size:14px;font-weight:600;color:#fff;margin-bottom:1px;letter-spacing:.5px}
+.col-hd p{font-size:10px;color:rgba(255,255,255,.38)}
+.col-body{padding:14px 16px}
+
+/* ── COL GAUCHE : ACQUÉREURS ── */
+#col-acq{background:var(--white);border-right:1px solid var(--border)}
+.acq-card{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:all .15s;position:relative}
+.acq-card:hover,.acq-card.active{border-color:var(--gold);box-shadow:var(--sh)}
+.acq-card.active{background:var(--goldpale)}
+.acq-nom{font-weight:600;font-size:13px;color:var(--navy);margin-bottom:2px}
+.acq-sub{font-size:11px;color:var(--gray)}
+.acq-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.acq-tag{background:var(--navy);color:rgba(255,255,255,.8);font-size:9px;padding:2px 7px;border-radius:10px;letter-spacing:.3px}
+.acq-del{position:absolute;top:8px;right:8px;cursor:pointer;color:var(--red);font-size:14px;opacity:.6}
+.acq-del:hover{opacity:1}
+.acq-score{position:absolute;bottom:8px;right:10px;font-family:'Raleway',sans-serif;font-size:16px;font-weight:700}
+.acq-empty{text-align:center;padding:40px 20px;color:var(--gray)}
+.acq-empty .ic{font-size:32px;margin-bottom:10px;opacity:.4}
+
+/* ── FORMULAIRE ACQUÉREUR ── */
+/* En mode collapsed : drawer inline dans col-acq */
+/* En mode open : col-acq prend 2/3 de l'écran, drawer en pleine largeur */
+.drawer{display:none;flex-direction:column;background:var(--white)}
+.drawer.open{display:flex}
+#col-acq{display:flex;flex-direction:column;transition:all .3s ease}
+#acq-list-zone{flex:1;overflow-y:auto;padding:14px 16px}
+#acq-list-zone.hidden{display:none}
+
+/* Drawer en mode étendu */
+.drawer-panel{flex:1;overflow-y:auto;padding:20px 28px;background:var(--cream)}
+.drawer-sidebar{width:280px;flex-shrink:0;background:var(--white);border-left:1px solid var(--border);padding:16px;overflow-y:auto}
+
+.drw-hd{background:var(--navy);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.drw-hd h3{font-size:14px;font-weight:600;color:#fff;letter-spacing:.5px}
+.drw-hd p{font-size:10px;color:rgba(255,255,255,.38);margin-top:2px}
+.drw-close{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.7);border-radius:3px;padding:5px 12px;cursor:pointer;font-size:12px;font-family:Raleway,sans-serif;transition:all .15s}
+.drw-close:hover{background:rgba(255,255,255,.2);color:#fff}
+
+.drw-body{display:flex;flex:1;overflow:hidden}
+.drw-section-title{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--goldpale);margin-top:18px}
+.drw-section-title:first-child{margin-top:0}
+
+.fg{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}
+.fg label{font-size:10px;font-weight:500;color:var(--navy);letter-spacing:.3px}
+.fg input,.fg select,.fg textarea{border:1px solid var(--border);border-radius:3px;padding:7px 10px;font-family:'Raleway',sans-serif;font-size:12px;color:var(--navy);background:var(--white);outline:none;transition:border-color .15s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(201,168,76,.1)}
+.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg.full{grid-column:1/-1}
+.drw-footer{background:var(--white);border-top:1px solid var(--border);padding:12px 28px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+/* ── UPLOAD DOCS ACQUÉREUR ── */
+.upz-sm{border:1px dashed var(--border);border-radius:4px;padding:10px 14px;cursor:pointer;text-align:center;font-size:11px;color:var(--gray);transition:all .15s;background:var(--cream)}
+.upz-sm:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── NUAGE DE MOTS ── */
+.cloud-wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0}
+.cloud-word{padding:3px 10px;border-radius:20px;font-size:11px;cursor:default;transition:transform .1s}
+.cloud-word:hover{transform:scale(1.08)}
+.cloud-word.w3{font-size:14px;font-weight:700}
+.cloud-word.w2{font-size:12px;font-weight:600}
+.cloud-word.w1{font-size:11px;font-weight:400}
+/* couleurs par catégorie */
+.cloud-word.cat-secteur{background:rgba(27,42,74,.1);color:var(--navy)}
+.cloud-word.cat-geo{background:rgba(30,127,94,.1);color:var(--green)}
+.cloud-word.cat-financier{background:rgba(201,168,76,.2);color:#7a5e1a}
+.cloud-word.cat-operationnel{background:rgba(192,57,43,.08);color:var(--red)}
+.cloud-word.cat-strategique{background:rgba(36,54,96,.1);color:var(--navy2)}
+.cloud-word.cat-default{background:var(--cream2);color:var(--gray)}
+
+/* ── COL CENTRE : OPPORTUNITÉS ── */
+#col-opp{background:var(--cream);border-right:1px solid var(--border)}
+.opp-card{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:all .15s;position:relative}
+.opp-card:hover,.opp-card.active{border-color:var(--gold);box-shadow:var(--sh)}
+.opp-card.active{border-left:3px solid var(--gold)}
+.opp-nom{font-weight:600;font-size:13px;color:var(--navy);margin-bottom:2px}
+.opp-sub{font-size:11px;color:var(--gray)}
+.opp-del{position:absolute;top:8px;right:8px;cursor:pointer;color:var(--red);font-size:14px;opacity:.6}
+.opp-del:hover{opacity:1}
+.drop-zone{border:2px dashed var(--border);border-radius:6px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:14px}
+.drop-zone:hover,.drop-zone.drag{border-color:var(--gold);background:rgba(201,168,76,.05)}
+.drop-zone .ic{font-size:28px;color:var(--border);margin-bottom:8px}
+.drop-zone h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.drop-zone p{font-size:11px;color:var(--gray)}
+
+/* ── COL DROITE : RÉSULTATS ── */
+#col-res{background:var(--white)}
+.match-card{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:14px;margin-bottom:10px;transition:all .15s}
+.match-card:hover{box-shadow:var(--sh);border-color:var(--gold)}
+.match-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.match-nom{font-weight:700;font-size:14px;color:var(--navy)}
+.match-score-badge{font-family:'Raleway',sans-serif;font-size:22px;font-weight:700;padding:4px 14px;border-radius:20px}
+.score-high{background:rgba(30,127,94,.15);color:var(--green)}
+.score-mid{background:rgba(201,168,76,.2);color:#7a5e1a}
+.score-low{background:rgba(192,57,43,.1);color:var(--red)}
+.match-bars{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.match-bar-row{display:flex;align-items:center;gap:8px;font-size:11px}
+.match-bar-lbl{width:100px;color:var(--gray);flex-shrink:0}
+.match-bar-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.match-bar-fill{height:100%;border-radius:3px;transition:width .4s ease}
+.match-bar-val{width:30px;text-align:right;font-weight:600;color:var(--navy);font-size:11px}
+.match-tags-common{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.match-tag-common{background:rgba(201,168,76,.2);color:#7a5e1a;font-size:9px;padding:2px 8px;border-radius:10px;font-weight:600}
+.match-tag-miss{background:rgba(192,57,43,.08);color:var(--red);font-size:9px;padding:2px 8px;border-radius:10px}
+.match-actions{display:flex;gap:6px;margin-top:10px}
+
+/* ── BOUTONS ── */
+.btn{border:none;border-radius:3px;padding:7px 14px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:all .15s}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--navy2)}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{opacity:.85}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{opacity:.85}
+.btn-sm{padding:4px 10px;font-size:10px}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--navy)}.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-block{display:block;width:100%;text-align:center;padding:10px}
+
+/* ── MISC ── */
+.sec-title{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--goldpale)}
+.badge-cat{font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:10px;font-weight:600}
+.pill{display:inline-flex;align-items:center;gap:4px;background:var(--cream2);border:1px solid var(--border);border-radius:20px;padding:3px 9px;font-size:11px;margin:2px}
+.pill .x{cursor:pointer;color:var(--red);margin-left:2px;font-size:12px}
+.sep-or{display:flex;align-items:center;gap:8px;color:var(--gray);font-size:10px;margin:8px 0}
+.sep-or::before,.sep-or::after{content:'';flex:1;height:1px;background:var(--border)}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:10px 18px;border-radius:5px;font-size:12px;transform:translateY(60px);opacity:0;transition:all .3s;z-index:999}
+.toast.show{transform:translateY(0);opacity:1}
+.gening-overlay{position:fixed;inset:0;background:rgba(27,42,74,.6);display:none;align-items:center;justify-content:center;z-index:500;backdrop-filter:blur(3px)}
+.gening-overlay.show{display:flex}
+.gening-box{background:var(--white);border-radius:8px;padding:32px 40px;text-align:center;box-shadow:var(--shl)}
+.spin{width:32px;height:32px;border:3px solid var(--cream2);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty-state{text-align:center;padding:50px 20px;color:var(--gray)}
+.empty-state .ic{font-size:40px;margin-bottom:12px;opacity:.3}
+.empty-state h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px;opacity:.5}
+.empty-state p{font-size:11px;line-height:1.6}
+.score-donut{position:relative;width:60px;height:60px}
+.score-donut svg{transform:rotate(-90deg)}
+.score-donut .val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:16px;font-weight:700}
+hr.sep-light{border:none;border-top:1px solid var(--border);margin:12px 0}
+.loading-words{font-size:11px;color:var(--gray);font-style:italic;padding:8px 0}
+
+/* ── MODAL PRÉANALYSE ── */
+.preanalyse-modal{position:fixed;inset:0;z-index:800;display:none;align-items:flex-start;justify-content:center;padding:20px;background:rgba(27,42,74,.75);backdrop-filter:blur(6px);overflow-y:auto}
+.preanalyse-modal.show{display:flex}
+.preanalyse-inner{background:var(--cream);border-radius:8px;box-shadow:0 24px 80px rgba(27,42,74,.3);width:100%;max-width:860px;max-height:calc(100vh - 40px);overflow-y:auto;position:relative;animation:modalIn .25s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.preanalyse-modal-hd{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-radius:8px 8px 0 0}
+.preanalyse-modal-hd h3{font-size:14px;font-weight:600;color:#fff;letter-spacing:.5px}
+.preanalyse-modal-hd .sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px}
+.preanalyse-modal-close{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.7);border-radius:3px;padding:6px 14px;cursor:pointer;font-size:12px;font-family:Raleway,sans-serif;transition:all .15s}
+.preanalyse-modal-close:hover{background:rgba(255,255,255,.2);color:#fff}
+.preanalyse-modal-body{padding:20px 24px}
+/* Injecter les styles du teaser_generator dans la modal */
+.preanalyse-modal-body .docw{box-shadow:none;border-radius:0;margin:0}
+.preanalyse-modal-body .dochd{border-radius:0}
+.drive-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);border-radius:3px;padding:4px 12px;font-size:11px;font-family:Raleway,sans-serif;cursor:pointer;transition:all .15s;white-space:nowrap}
+.drive-btn:hover{background:rgba(255,255,255,.18);color:#fff}
+.drive-btn.connected{border-color:rgba(30,127,94,.6);background:rgba(30,127,94,.15);color:#4ade80}
+.drive-btn.syncing{opacity:.6;cursor:default}
+.drive-status{font-size:9px;letter-spacing:.5px}
+.drive-sync-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 20px;border-radius:20px;font-size:11px;display:none;align-items:center;gap:8px;box-shadow:var(--sh);z-index:999}
+.drive-sync-bar.show{display:flex}
+.drive-sync-bar .spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIyNSA4MCAzNjAgODAiPgo8cGF0aCBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSIgZD0iTSAxNDguNTg1OTM4IDEyNC4yNTM5MDYgTCAxNjUuOTU3MDMxIDEyNC4yNjE3MTkgTCAxNTcuMjc3MzQ0IDEwNC41MDM5MDYgWiBNIDE0Mi4xNjAxNTYgMTM4LjgxMjUgTCAxMzUuNjE3MTg4IDEzOC44MTI1IEwgMTU0LjUyNzM0NCA5Ni45NzY1NjIgTCAxNjAuMDMxMjUgOTYuOTc2NTYyIEwgMTc4LjkyMTg3NSAxMzguODIwMzEyIEwgMTcyLjM3ODkwNiAxMzguODIwMzEyIEwgMTY4LjI4MTI1IDEyOS40NjA5MzggTCAxNDYuMjYxNzE5IDEyOS40NTMxMjUgWiBNIDE0Mi4xNjAxNTYgMTM4LjgxMjUgIi8+CjxwYXRoIGZpbGwtcnVsZT0ibm9uemVybyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIiBkPSJNIDIwMS42MTcxODggMTE0Ljk2ODc1IEMgMTk3LjY5OTIxOSAxMTQuOTY4NzUgMTk0LjMzNTkzOCAxMTUuMDMxMjUgMTkwLjQyMTg3NSAxMTUuNDU3MDMxIEwgMTkwLjQxNzk2OSAxMzguODIwMzEyIEwgMTg0Ljg1MTU2MiAxMzguODIwMzEyIEwgMTg0Ljg1NTQ2OSAxMTEuMDUwNzgxIEMgMTg5LjkzMzU5NCAxMTAuMTM2NzE5IDE5Ni4yMzQzNzUgMTA5LjQwMjM0NCAyMDEuNjE3MTg4IDEwOS40MDIzNDQgWiBNIDIwMS42MTcxODggMTE0Ljk2ODc1ICIvPgo8cGF0aCBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSIgZD0iTSAyMzAuNDIxODc1IDExNS4xNjAxNTYgQyAyMjcuMjQyMTg4IDExNC40MjE4NzUgMjI0LjEyNSAxMTMuODc1IDIyMS44NTkzNzUgMTEzLjg3MTA5NCBDIDIxNS4xMzI4MTIgMTEzLjg3MTA5NCAyMTAuODQ3NjU2IDExOC4xNTIzNDQgMjEwLjg0NzY1NiAxMjQuMzkwNjI1IEMgMjEwLjg0Mzc1IDEzMC43NTM5MDYgMjE1LjE4NzUgMTM0Ljg1MTU2MiAyMjEuMzY3MTg4IDEzNC44NTE1NjIgQyAyMjMuNjkxNDA2IDEzNC44NTU0NjkgMjI3LjMwMDc4MSAxMzQuMjQyMTg4IDIzMC43ODUxNTYgMTMzLjM4NjcxOSBMIDIzMS41ODIwMzEgMTM3LjkxNDA2MiBDIDIyOC4yNzczNDQgMTM5LjAxMTcxOSAyMjQuMzAwNzgxIDEzOS43NDYwOTQgMjIxLjA1ODU5NCAxMzkuNzQ2MDk0IEMgMjExLjc2MTcxOSAxMzkuNzQ2MDk0IDIwNS4yMTg3NSAxMzMuNjg3NSAyMDUuMjIyNjU2IDEyNC4zMjgxMjUgQyAyMDUuMjIyNjU2IDExNS4wMzEyNSAyMTEuNzY5NTMxIDEwOS4wOTc2NTYgMjIxLjQzMzU5NCAxMDkuMTAxNTYyIEMgMjI0LjMwODU5NCAxMDkuMTAxNTYyIDIyOC4yMjI2NTYgMTA5LjY1MjM0NCAyMzEuMjgxMjUgMTEwLjY5NTMxMiBaIE0gMjMwLjQyMTg3NSAxMTUuMTYwMTU2ICIvPgo8cGF0aCBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSIgZD0iTSAyNTQuMjc3MzQ0IDEwNC4xNTIzNDQgTCAyNDguNzczNDM4IDEwNC4xNTIzNDQgTCAyNTMuNjY3OTY5IDk0LjczNDM3NSBMIDI2MS4xOTE0MDYgOTQuNzM0Mzc1IFogTSAyNDIuMjIyNjU2IDEyMi4zMTY0MDYgTCAyNjAuMTQ4NDM4IDEyMi4zMjAzMTIgQyAyNjAuMDIzNDM4IDExNy4wNjI1IDI1Ni41MzkwNjIgMTEzLjc1NzgxMiAyNTEuNDYwOTM4IDExMy43NTc4MTIgQyAyNDYuMjYxNzE5IDExMy43NTM5MDYgMjQyLjgzNTkzOCAxMTcuMTc5Njg4IDI0Mi4yMjI2NTYgMTIyLjMxNjQwNiBNIDI2NS4yMjI2NTYgMTIyLjM4MjgxMiBDIDI2NS4yMjI2NTYgMTI0LjMzOTg0NCAyNjUuMTY0MDYyIDEyNC44OTA2MjUgMjY0LjkxNzk2OSAxMjYuNjY0MDYyIEwgMjQyLjQwNjI1IDEyNi42NjAxNTYgQyAyNDMuMjYxNzE5IDEzMS40OTIxODggMjQ2Ljg3MTA5NCAxMzQuNzM0Mzc1IDI1Mi41IDEzNC43MzgyODEgQyAyNTUuNjE3MTg4IDEzNC43MzgyODEgMjU4LjYxNzE4OCAxMzQuMTI1IDI2Mi44OTQ1MzEgMTMzLjE0ODQzOCBMIDI2My42OTE0MDYgMTM3LjY3NTc4MSBDIDI1OS41OTM3NSAxMzguOTU3MDMxIDI1Ni4yMzA0NjkgMTM5Ljc1MzkwNiAyNTIuMzEyNSAxMzkuNzUzOTA2IEMgMjQyLjAzOTA2MiAxMzkuNzUgMjM2LjQxMDE1NiAxMzMuMjAzMTI1IDIzNi40MTQwNjIgMTI0LjQ1NzAzMSBDIDIzNi40MTQwNjIgMTE1LjI4MTI1IDI0Mi43NzczNDQgMTA5LjI4OTA2MiAyNTEuNDAyMzQ0IDEwOS4yODkwNjIgQyAyNTkuNDE0MDYyIDEwOS4yOTI5NjkgMjY1LjE2NDA2MiAxMTQuNDMzNTk0IDI2NS4yMjI2NTYgMTIyLjM4MjgxMiAiLz4KPHBhdGggZmlsbC1ydWxlPSJub256ZXJvIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiIGQ9Ik0gMjc2LjcxODc1IDEyNC41ODU5MzggQyAyNzYuNzE0ODQ0IDEzMC43MDMxMjUgMjgwLjM4NjcxOSAxMzQuOTg4MjgxIDI4Ni4wMTU2MjUgMTM0Ljk4ODI4MSBDIDI4OS4wNzAzMTIgMTM0Ljk4ODI4MSAyOTEuODg2NzE5IDEzNC4wNzAzMTIgMjk1LjE4NzUgMTMxLjY4NzUgTCAyOTUuMTkxNDA2IDExNC43NDIxODggQyAyOTIuMjU3ODEyIDExNC4zMTY0MDYgMjg5LjYyNSAxMTQuMDcwMzEyIDI4Ni4zODI4MTIgMTE0LjA3MDMxMiBDIDI3OS44Mzk4NDQgMTE0LjA2NjQwNiAyNzYuNzE4NzUgMTE4LjQ3MjY1NiAyNzYuNzE4NzUgMTI0LjU4NTkzOCBNIDMwMC44MjAzMTIgMTEwLjc2OTUzMSBMIDMwMC44MTY0MDYgMTM4Ljg0Mzc1IEwgMjk1LjE4NzUgMTM4Ljg0Mzc1IEwgMjk1LjE4NzUgMTM2LjUxOTUzMSBDIDI5Mi4wNjY0MDYgMTM4LjU5NzY1NiAyODkuMDcwMzEyIDEzOS43NTc4MTIgMjg1LjI3NzM0NCAxMzkuNzU3ODEyIEMgMjc2LjgzNTkzOCAxMzkuNzU3ODEyIDI3MS4yMTA5MzggMTMzLjY0MDYyNSAyNzEuMjE0ODQ0IDEyNC40MDIzNDQgQyAyNzEuMjc3MzQ0IDExNS4zNTE1NjIgMjc2LjU5NzY1NiAxMDkuMzU1NDY5IDI4NS42NTIzNDQgMTA5LjM1OTM3NSBDIDI5MS4zOTg0MzggMTA5LjM1OTM3NSAyOTQuODI4MTI1IDEwOS43ODkwNjIgMzAwLjgyMDMxMiAxMTAuNzY5NTMxICIvPgo8cGF0aCBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSIgZD0iTSAzMzguNTU0Njg4IDEyMC43NDYwOTQgTCAzMzguNTUwNzgxIDEzOC44NTE1NjIgTCAzMzIuOTg0Mzc1IDEzOC44NTE1NjIgTCAzMzIuOTg4MjgxIDEyMi4yNzM0MzggQyAzMzIuOTg4MjgxIDExNy40NDE0MDYgMzMwLjExMzI4MSAxMTQuNDQ1MzEyIDMyNS41ODk4NDQgMTE0LjQ0NTMxMiBDIDMyMi43NzczNDQgMTE0LjQ0MTQwNiAzMTkuNjU2MjUgMTE0LjY4NzUgMzE2LjI5Mjk2OSAxMTUuMTc1NzgxIEwgMzE2LjI4NTE1NiAxMzguODQ3NjU2IEwgMzEwLjcyMjY1NiAxMzguODQ3NjU2IEwgMzEwLjcyNjU2MiAxMTAuNzY5NTMxIEMgMzE0LjM5NDUzMSAxMTAuMDM5MDYyIDMyMS40Mjk2ODggMTA5LjM2NzE4OCAzMjYuNzUgMTA5LjM2NzE4OCBDIDMzMy45Njg3NSAxMDkuMzY3MTg4IDMzOC41NTg1OTQgMTEzLjcxMDkzOCAzMzguNTU0Njg4IDEyMC43NDYwOTQgIi8+CjxwYXRoIGZpbGwtcnVsZT0ibm9uemVybyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIiBkPSJNIDM1MS42NDA2MjUgMTIyLjMzOTg0NCBMIDM2OS41NjI1IDEyMi4zNDM3NSBDIDM2OS40NDE0MDYgMTE3LjA4MjAzMSAzNjUuOTU3MDMxIDExMy43ODEyNSAzNjAuODc4OTA2IDExMy43NzczNDQgQyAzNTUuNjc5Njg4IDExMy43NzczNDQgMzUyLjI1MzkwNiAxMTcuMjAzMTI1IDM1MS42NDA2MjUgMTIyLjMzOTg0NCBNIDM3NC42NDA2MjUgMTIyLjQwNjI1IEMgMzc0LjY0MDYyNSAxMjQuMzYzMjgxIDM3NC41NzgxMjUgMTI0LjkxNDA2MiAzNzQuMzM1OTM4IDEyNi42ODc1IEwgMzUxLjgyNDIxOSAxMjYuNjgzNTk0IEMgMzUyLjY3OTY4OCAxMzEuNTE1NjI1IDM1Ni4yODkwNjIgMTM0Ljc1NzgxMiAzNjEuOTE0MDYyIDEzNC43NTc4MTIgQyAzNjUuMDM1MTU2IDEzNC43NTc4MTIgMzY4LjAzMTI1IDEzNC4xNDg0MzggMzcyLjI1MzkwNiAxMzMuMTY3OTY5IEwgMzczLjEwNTQ2OSAxMzcuNjk1MzEyIEMgMzY5LjAxMTcxOSAxMzguOTgwNDY5IDM2NS42NDQ1MzEgMTM5Ljc3MzQzOCAzNjEuNzMwNDY5IDEzOS43NzM0MzggQyAzNTEuNDU3MDMxIDEzOS43NzM0MzggMzQ1LjgyODEyNSAxMzMuMjI2NTYyIDM0NS44MzIwMzEgMTI0LjQ4MDQ2OSBDIDM0NS44MzIwMzEgMTE1LjMwNDY4OCAzNTIuMTk1MzEyIDEwOS4zMTI1IDM2MC43NTc4MTIgMTA5LjMxMjUgQyAzNjguODMyMDMxIDEwOS4zMTY0MDYgMzc0LjU4MjAzMSAxMTQuNDUzMTI1IDM3NC42NDA2MjUgMTIyLjQwNjI1ICIvPgo8cGF0aCBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9InJnYig5Ny4xNzU1OTglLCA2MS4zMzExNzclLCA1LjY0NzI3OCUpIiBmaWxsLW9wYWNpdHk9IjEiIGQ9Ik0gMTEzLjUzNTE1NiAxNDUuNzg1MTU2IEMgMTEwLjU1ODU5NCAxNDUuODQ3NjU2IDEwNy42OTE0MDYgMTQ1LjE2MDE1NiAxMDUuMjkyOTY5IDE0My43MzgyODEgQyAxMDIuODc1IDE0Mi4zMzU5MzggMTAwLjkzMzU5NCAxNDAuMjQyMTg4IDk5LjM0Mzc1IDEzNy45MDIzNDQgQyA5OC41NTA3ODEgMTM2LjczMDQ2OSA5Ny44MzU5MzggMTM1LjQ4ODI4MSA5Ny4xOTUzMTIgMTM0LjIwMzEyNSBDIDk2Ljg3ODkwNiAxMzMuNTYyNSA5Ni41NzQyMTkgMTMyLjkxMDE1NiA5Ni4yODEyNSAxMzIuMjU3ODEyIEMgOTYuMTQwNjI1IDEzMS45Mjk2ODggOTYuMDAzOTA2IDEzMS42MDE1NjIgOTUuODc1IDEzMS4yNzM0MzggTCA5NS41MTk1MzEgMTMwLjM0Mzc1IEwgOTMuNTg5ODQ0IDEyNS4zMjgxMjUgTCA5MS4zNjcxODggMTI5LjcxNDg0NCBDIDg4Ljg3MTA5NCAxMzQuNjQwNjI1IDg0Ljc1IDEzOC44NDM3NSA3OS45MjU3ODEgMTQxLjkxNDA2MiBDIDc3LjUxMTcxOSAxNDMuNDUzMTI1IDc0LjkyMTg3NSAxNDQuNzUgNzIuMTk1MzEyIDE0NS43MjI2NTYgQyA2OS40Njg3NSAxNDYuNjg3NSA2Ni41OTM3NSAxNDcuMzM1OTM4IDYzLjY4MzU5NCAxNDcuNDIxODc1IEMgNjAuNzc3MzQ0IDE0Ny41MjM0MzggNTcuODQzNzUgMTQ3LjA5Mzc1IDU1LjEzNjcxOSAxNDYuMTA5Mzc1IEMgNTMuNzg1MTU2IDE0NS42MTcxODggNTIuNSAxNDQuOTY4NzUgNTEuMzI0MjE5IDE0NC4xNzk2ODggQyA1MC4xMzY3MTkgMTQzLjQwNjI1IDQ5LjA4MjAzMSAxNDIuNDY4NzUgNDguMTc5Njg4IDE0MS40Mjk2ODggQyA0Ni4zNTkzNzUgMTM5LjM1NTQ2OSA0NS4yMzA0NjkgMTM2LjgxNjQwNiA0NC44NDc2NTYgMTM0LjI3MzQzOCBDIDQ0LjQ1NzAzMSAxMzEuNzE0ODQ0IDQ0LjgwODU5NCAxMjkuMTY3OTY5IDQ1LjU4NTkzOCAxMjYuODE2NDA2IEMgNDcuMjA3MDMxIDEyMi4wODIwMzEgNTAuMzgyODEyIDExOC4xMzY3MTkgNTMuOTI5Njg4IDExNC44MDg1OTQgQyA1NC4zNjMyODEgMTE0LjM4MjgxMiA1NC44Mzk4NDQgMTEzLjk4ODI4MSA1NS4yODUxNTYgMTEzLjU3ODEyNSBDIDU1Ljc2NTYyNSAxMTMuMTkxNDA2IDU2LjIxNDg0NCAxMTIuNzg1MTU2IDU2LjcwMzEyNSAxMTIuNDEwMTU2IEMgNTcuNjUyMzQ0IDExMS42NDQ1MzEgNTguNjM2NzE5IDExMC45MTQwNjIgNTkuNjUyMzQ0IDExMC4yMzA0NjkgQyA2MS42NzE4NzUgMTA4LjgzNTkzOCA2My44MDQ2ODggMTA3LjU5Mzc1IDY2LjAwNzgxMiAxMDYuNTM1MTU2IEMgNzAuNDIxODc1IDEwNC40MjU3ODEgNzUuMTYwMTU2IDEwMy4wMTE3MTkgODAuMTA1NDY5IDEwMi42NTYyNSBDIDg1LjAzNTE1NiAxMDIuMzk0NTMxIDkwLjIwMzEyNSAxMDMuMTMyODEyIDk1LjM1NTQ2OSAxMDYuODU5Mzc1IEMgOTQuODM1OTM4IDEwMy43MTQ4NDQgOTIuOTkyMTg4IDEwMC43MTQ4NDQgOTAuNDYwOTM4IDk4LjM5ODQzOCBDIDg3LjkyOTY4OCA5Ni4wNTg1OTQgODQuNzM0Mzc1IDk0LjQxNzk2OSA4MS4zOTQ1MzEgOTMuNDQ5MjE5IEMgNzguMDUwNzgxIDkyLjQ4MDQ2OSA3NC41MjczNDQgOTIuMTUyMzQ0IDcxLjA4NTkzOCA5Mi4zOTQ1MzEgQyA2Ny42MzI4MTIgOTIuNjIxMDk0IDY0LjIzODI4MSA5My4zOTQ1MzEgNjEuMDI3MzQ0IDk0LjU5NzY1NiBDIDU0LjYxMzI4MSA5Ny4wMTU2MjUgNDguODU1NDY5IDEwMS4xMDU0NjkgNDQuNjI1IDEwNi41ODIwMzEgQyA0Mi41MjM0MzggMTA5LjMxMjUgNDAuODIwMzEyIDExMi4zNzUgMzkuNjUyMzQ0IDExNS42NDQ1MzEgQyAzOC40ODgyODEgMTE4LjkxNDA2MiAzNy44Nzg5MDYgMTIyLjQwMjM0NCAzNy45Mzc1IDEyNS44NzUgQyAzOC4wMDM5MDYgMTI5LjM0NzY1NiAzOC44MDQ2ODggMTMyLjgwMDc4MSA0MC4zMTI1IDEzNS44MTI1IEMgNDEuODE2NDA2IDEzOC44MjgxMjUgNDQuMDA3ODEyIDE0MS4zNTU0NjkgNDYuNTM5MDYyIDE0My4yMzQzNzUgQyA0Ny44MDQ2ODggMTQ0LjE3MTg3NSA0OS4xNjAxNTYgMTQ0Ljk0MTQwNiA1MC41NDY4NzUgMTQ1LjU4NTkzOCBDIDUxLjk0OTIxOSAxNDYuMjEwOTM4IDUzLjM5MDYyNSAxNDYuNjkxNDA2IDU0Ljg0Mzc1IDE0Ny4wNTg1OTQgQyA1Ny43NTc4MTIgMTQ3Ljc4NTE1NiA2MC43MzgyODEgMTQ4LjA3NDIxOSA2My42OTkyMTkgMTQ3Ljk3NjU2MiBDIDY2LjY2MDE1NiAxNDcuOTA2MjUgNjkuNjE3MTg4IDE0Ny41MzEyNSA3Mi41MjczNDQgMTQ2LjgzOTg0NCBDIDczLjk3NjU2MiAxNDYuNDgwNDY5IDc1LjQwNjI1IDE0Ni4wMzUxNTYgNzYuODIwMzEyIDE0NS41MjM0MzggQyA3OC4yMjY1NjIgMTQ0Ljk5NjA5NCA3OS42MDE1NjIgMTQ0LjM4NjcxOSA4MC45NTMxMjUgMTQzLjcxODc1IEMgODMuNjQwNjI1IDE0Mi4zNDc2NTYgODYuMTk1MzEyIDE0MC42OTE0MDYgODguNjAxNTYyIDEzOC43OTY4NzUgQyA4OS44MDg1OTQgMTM3Ljg0NzY1NiA5MC45NTcwMzEgMTM2LjgyMDMxMiA5Mi4wNTQ2ODggMTM1LjcyNjU2MiBDIDkyLjE5NTMxMiAxMzUuNTkzNzUgOTIuMzI0MjE5IDEzNS40NDUzMTIgOTIuNDYwOTM4IDEzNS4zMDQ2ODggQyA5Mi42MzI4MTIgMTM1LjY2NDA2MiA5Mi44MDg1OTQgMTM2LjAxOTUzMSA5Mi45OTYwOTQgMTM2LjM3MTA5NCBDIDkzLjc4MTI1IDEzNy44NDc2NTYgOTQuNjk5MjE5IDEzOS4yNjE3MTkgOTUuNzY1NjI1IDE0MC41NzgxMjUgQyA5Ny44Nzg5MDYgMTQzLjIwNzAzMSAxMDAuNjMyODEyIDE0NS40NTMxMjUgMTAzLjgyODEyNSAxNDYuNzY1NjI1IEMgMTA1LjQyMTg3NSAxNDcuNDA2MjUgMTA3LjEwNTQ2OSAxNDcuODIwMzEyIDEwOC43ODkwNjIgMTQ3Ljk1MzEyNSBDIDExMC40NzI2NTYgMTQ4LjA4OTg0NCAxMTIuMTQ0NTMxIDE0Ny45NTMxMjUgMTEzLjc0MjE4OCAxNDcuNjM2NzE5IEMgMTE2Ljk1MzEyNSAxNDcuMDExNzE5IDExOS44NjcxODggMTQ1LjYyMTA5NCAxMjIuNDg0Mzc1IDE0My45MjE4NzUgQyAxMTkuNTQ2ODc1IDE0NC45ODA0NjkgMTE2LjUxMTcxOSAxNDUuNzEwOTM4IDExMy41MzUxNTYgMTQ1Ljc4NTE1NiAiLz4KPC9zdmc+Cg==" alt="ARCÉANE" style="height:24px;vertical-align:middle;margin-right:6px"><span style="font-size:10px;color:rgba(255,255,255,.35);letter-spacing:1px">Matcher</span></div>
+    <div class="logo-sub">· M&A matching</div>
+  </div>
+  <div class="tbr">
+    <span style="font-size:10px;color:rgba(255,255,255,.3)">Clé OpenAI</span>
+    <input class="api-inp" type="password" id="apikey" placeholder="sk-..." oninput="saveKey(this.value)">
+    <span class="api-st" id="apist"></span>
+    <button class="drive-btn" id="drive-btn" onclick="driveConnect()">
+      <svg width="14" height="14" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53.5H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 48.65C.4 50.05 0 51.6 0 53.15h27.5z" fill="#00ac47"/><path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L85.1 57.5c.8-1.4 1.2-2.95 1.2-4.5H58.8L73.55 76.8z" fill="#ea4335"/><path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.95 0H34.35c-1.55 0-3.1.45-4.45 1.2z" fill="#00832d"/><path d="M58.8 53.15H27.5L13.75 76.8c1.35.8 2.9 1.2 4.45 1.2h50.9c1.55 0 3.1-.45 4.45-1.2z" fill="#2684fc"/><path d="M73.4 26.35l-12.7-22C59.85 2.95 58.7 1.85 57.35 1.05L43.6 25l15.2 28.15H86.3c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>
+      <span id="drive-status-txt">Connecter Drive</span>
+    </button>
+    <a class="tbl" href="teaser_generator.html">← Teaser Generator</a>
+  </div>
+</div>
+
+<!-- Barre de sync Drive -->
+<div class="drive-sync-bar" id="drive-sync-bar">
+  <div class="spin"></div>
+  <span id="drive-sync-msg">Synchronisation Drive…</span>
+</div>
+
+<div id="app">
+
+  <!-- ══ COL GAUCHE : ACQUÉREURS ══ -->
+  <div class="col" id="col-acq">
+    <!-- En-tête standard (mode liste) -->
+    <div class="col-hd" id="acq-col-hd">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div><h2>Projets acquéreurs</h2><p>Saisie manuelle ou import de documents</p></div>
+        <div style="display:flex;gap:6px">
+          <button class="btn btn-gold btn-sm" onclick="openAcqForm()">+ Nouveau</button>
+          <button class="btn btn-outline btn-sm" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.7)" onclick="document.getElementById('acq-doc-input').click()">📄 Import</button>
+          <input type="file" id="acq-doc-input" accept=".pdf,.txt,.docx,.xml" style="display:none" onchange="importAcqDoc(this.files[0])">
+        </div>
+      </div>
+    </div>
+
+    <!-- Liste des acquéreurs -->
+    <div id="acq-list-zone" style="padding:14px 16px">
+      <div id="acq-list">
+        <div class="acq-empty"><div class="ic">🎯</div><p>Aucun projet acquéreur.<br>Ajoutez-en un ou importez un document.</p></div>
+      </div>
+    </div>
+
+    <!-- Drawer formulaire (pleine hauteur, remplace la liste) -->
+    <div class="drawer" id="acq-drawer">
+      <!-- Header drawer -->
+      <div class="drw-hd">
+        <div>
+          <h3 id="acq-form-title">Nouveau projet acquéreur</h3>
+          <p>Renseignez les critères de recherche</p>
+        </div>
+        <button class="drw-close" onclick="closeAcqForm()">✕ Fermer</button>
+      </div>
+      <!-- Corps -->
+      <div class="drw-body">
+        <!-- Formulaire principal -->
+        <div class="drawer-panel">
+          <div class="drw-section-title">Identification</div>
+          <div class="fg2">
+            <div class="fg"><label>Nom / Raison sociale *</label><input id="aq-nom" type="text" placeholder="M. Dupont ou Groupe ABC"></div>
+            <div class="fg"><label>Type d'acquéreur</label>
+              <select id="aq-type"><option value="">—</option><option>Particulier repreneur</option><option>Industriel</option><option>Investisseur financier</option><option>Groupe stratégique</option><option>Management buy-in</option></select>
+            </div>
+          </div>
+          <div class="fg"><label>Contact (email ou téléphone)</label>
+            <input id="aq-contact" type="text" placeholder="contact@example.com · +33 6..."></div>
+
+          <div class="drw-section-title">Description du projet</div>
+          <div class="fg"><label>Projet de reprise — description libre</label>
+            <textarea id="aq-desc" rows="5" placeholder="Ex : Dirigeant opérationnel 20 ans d'expérience agroalimentaire, cherche PME rentable en PACA ou Occitanie, CA 5–15 M€, souhait de transmission douce sur 2 ans..."></textarea>
+          </div>
+          <div class="fg2">
+            <div class="fg"><label>Secteurs d'intérêt</label><input id="aq-secteurs" type="text" placeholder="Agroalimentaire, industrie, services B2B..."></div>
+            <div class="fg"><label>Zones géographiques</label><input id="aq-geo" type="text" placeholder="PACA, Occitanie, national..."></div>
+          </div>
+
+          <div class="drw-section-title">Critères financiers</div>
+          <div class="fg3">
+            <div class="fg"><label>CA min (k€)</label><input id="aq-ca-min" type="number" placeholder="2 000"></div>
+            <div class="fg"><label>CA max (k€)</label><input id="aq-ca-max" type="number" placeholder="15 000"></div>
+            <div class="fg"><label>EBITDA min (k€)</label><input id="aq-ebi-min" type="number" placeholder="300"></div>
+          </div>
+          <div class="fg2">
+            <div class="fg"><label>Apport / Budget disponible (k€)</label><input id="aq-budget" type="number" placeholder="500"></div>
+            <div class="fg"><label>Mots-clés additionnels</label><input id="aq-kw" type="text" placeholder="bolt-on, familial, transmission douce..."></div>
+          </div>
+        </div>
+
+        <!-- Sidebar nuage de mots -->
+        <div class="drawer-sidebar">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--goldpale)">
+            Nuage de mots du projet
+          </div>
+          <div style="font-size:11px;color:var(--gray);margin-bottom:10px;line-height:1.5">Généré automatiquement depuis vos critères. Enrichissez-le avec GPT.</div>
+          <div class="cloud-wrap" id="aq-cloud" style="min-height:80px">
+            <div style="font-size:11px;color:var(--border);font-style:italic">Renseignez les critères pour voir le nuage</div>
+          </div>
+          <div id="aq-cloud-section" style="margin-top:14px">
+            <button class="btn btn-gold" onclick="genAcqCloud()" style="width:100%;margin-bottom:8px">⚡ Enrichir avec GPT</button>
+            <div style="font-size:10px;color:var(--gray);line-height:1.4;text-align:center">GPT analyse la description et extrait les mots-clés métier</div>
+          </div>
+
+          <!-- Légende couleurs -->
+          <div style="margin-top:20px;padding-top:12px;border-top:1px solid var(--border)">
+            <div style="font-size:9px;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Légende</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <div style="display:flex;align-items:center;gap:6px"><span class="cloud-word cat-secteur w1" style="margin:0">secteur</span><span style="font-size:10px;color:var(--gray)">Activité / secteur</span></div>
+              <div style="display:flex;align-items:center;gap:6px"><span class="cloud-word cat-geo w1" style="margin:0">zone</span><span style="font-size:10px;color:var(--gray)">Géographie</span></div>
+              <div style="display:flex;align-items:center;gap:6px"><span class="cloud-word cat-financier w1" style="margin:0">finance</span><span style="font-size:10px;color:var(--gray)">Financier</span></div>
+              <div style="display:flex;align-items:center;gap:6px"><span class="cloud-word cat-strategique w1" style="margin:0">stratégie</span><span style="font-size:10px;color:var(--gray)">Stratégique</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer actions -->
+      <div class="drw-footer">
+        <button class="btn btn-navy" onclick="saveAcquereur()" style="padding:9px 24px">💾 Enregistrer ce projet</button>
+        <button class="btn btn-outline btn-sm" onclick="closeAcqForm()">Annuler</button>
+        <div style="margin-left:auto;font-size:11px;color:var(--gray)" id="acq-save-hint"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COL CENTRE : OPPORTUNITÉS ══ -->
+  <div class="col" id="col-opp">
+    <div class="col-hd">
+      <h2>Opportunités</h2>
+      <p>Import XML depuis Teaser Generator</p>
+    </div>
+    <div class="col-body">
+
+      <!-- Zone de drop XML -->
+      <div class="drop-zone" id="opp-drop"
+        onclick="document.getElementById('opp-xml-input').click()"
+        ondragover="event.preventDefault();this.classList.add('drag')"
+        ondragleave="this.classList.remove('drag')"
+        ondrop="event.preventDefault();this.classList.remove('drag');importOppXml(event.dataTransfer.files[0])">
+        <div class="ic">📄</div>
+        <h4>Déposer un XML opportunité</h4>
+        <p>Export Préanalyse depuis Teaser Generator</p>
+      </div>
+      <input type="file" id="opp-xml-input" accept=".xml" style="display:none" onchange="importOppXml(this.files[0])">
+
+      <!-- Liste des opportunités -->
+      <div id="opp-list">
+        <div class="empty-state"><div class="ic">🏢</div><h3>Aucune opportunité</h3><p>Importez un XML depuis le Teaser Generator</p></div>
+      </div>
+
+      <!-- Bouton de matching -->
+      <div id="match-btn-zone" style="display:none;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">
+        <button class="btn btn-gold btn-block" onclick="runMatching()">⚡ Lancer le matching</button>
+        <div style="font-size:10px;color:var(--gray);text-align:center;margin-top:6px">Compare l'opportunité active avec tous les projets acquéreurs</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ COL DROITE : RÉSULTATS ══ -->
+  <div class="col" id="col-res">
+    <div class="col-hd">
+      <h2>Résultats du matching</h2>
+      <p>Acquéreurs classés par score de compatibilité</p>
+    </div>
+    <div class="col-body">
+      <div id="res-content">
+        <div class="empty-state"><div class="ic">🔍</div><h3>En attente</h3><p>Sélectionnez une opportunité et lancez le matching</p></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Overlay loading -->
+<!-- ══ MODAL PRÉANALYSE ══ -->
+<div class="preanalyse-modal" id="preanalyse-modal" onclick="if(event.target===this)closePreanalyseModal()">
+  <div class="preanalyse-inner">
+    <div class="preanalyse-modal-hd">
+      <div>
+        <h3 id="modal-opp-nom">Préanalyse</h3>
+        <div class="sub" id="modal-opp-sub"></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn btn-gold btn-sm" onclick="runMatchingFromModal()" id="modal-match-btn">⚡ Lancer le matching</button>
+        <button class="preanalyse-modal-close" onclick="closePreanalyseModal()">✕ Fermer</button>
+      </div>
+    </div>
+    <div class="preanalyse-modal-body" id="preanalyse-modal-body"></div>
+  </div>
+</div>
+
+
+<div class="gening-overlay" id="gening">
+  <div class="gening-box">
+    <div class="spin"></div>
+    <div style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px">Traitement en cours…</div>
+    <div style="font-size:11px;color:var(--gray)" id="gen-step">Initialisation</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══ ÉTAT ═══════════════════════════════════════════════════════════════════════
+let acquereurs = []; // [{id, nom, type, desc, secteurs, geo, caMin, caMax, ebiMin, budget, kw, contact, words, updatedAt}]
+let opportunites = []; // [{id, nom, region, secteur, ca, ebitda, rn, annee, html, donneesGpt, words}]
+let activeOppId = null;
+let editingAcqId = null;
+
+// ══ PERSISTANCE ════════════════════════════════════════════════════════════════
+function saveState(){try{localStorage.setItem('matcher_acq',JSON.stringify(acquereurs));}catch(e){}}
+function loadState(){
+  try{
+    const a=localStorage.getItem('matcher_acq');
+    if(a) acquereurs=JSON.parse(a);
+  }catch(e){}
+}
+
+// ══ API KEY ════════════════════════════════════════════════════════════════════
+function saveKey(v){
+  localStorage.setItem('tg_okey',v);
+  document.getElementById('apist').textContent=v.startsWith('sk-')?'✓':'';
+  document.getElementById('apist').style.color='var(--gold)';
+}
+
+// ══ GPT ════════════════════════════════════════════════════════════════════════
+async function gpt(messages, maxTokens){
+  const key=localStorage.getItem('tg_okey');
+  if(!key) throw new Error('Clé API manquante');
+  const r=await fetch('https://api.openai.com/v1/chat/completions',{
+    method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+    body:JSON.stringify({model:'gpt-5-mini',max_completion_tokens:maxTokens||2000,response_format:{type:'json_object'},messages})
+  });
+  const d=await r.json();
+  if(d.error) throw new Error(d.error.message);
+  return JSON.parse(d.choices[0].message.content);
+}
+
+// ══ NUAGE DE MOTS — LOGIQUE ════════════════════════════════════════════════════
+
+// Stopwords français
+const STOP=['le','la','les','de','du','des','un','une','et','en','au','aux','par','sur',
+'pour','dans','avec','est','sont','qui','que','ou','se','si','ne','pas','plus','mais',
+'comme','car','il','elle','ils','elles','nous','vous','on','ce','cet','cette','ces',
+'ses','mon','ma','mes','ton','ta','tes','son','sa','tout','tous','toutes','toute',
+'aussi','très','bien','être','avoir','faire','leur','leurs','dont','lors','selon',
+'entre','après','avant','contre','sans','sous','vers','ainsi','afin','via','nc','k€',
+'mois','année','ans','rapport','niveau','part','point','base','terme'];
+
+// Dictionnaire de catégories par mot-clé
+const CAT_MAP={
+  // Secteurs / activités
+  agroalimentaire:'secteur',alimentaire:'secteur',restauration:'secteur',boulangerie:'secteur',
+  industrie:'secteur',industriel:'secteur',manufacture:'secteur',production:'secteur',
+  service:'secteur',services:'secteur',btp:'secteur',construction:'secteur',
+  numérique:'secteur',digital:'secteur',logiciel:'secteur','it':'secteur',
+  santé:'secteur',médical:'secteur',pharmacie:'secteur',soin:'secteur',
+  distribution:'secteur',commerce:'secteur',retail:'secteur',négoce:'secteur',
+  transport:'secteur',logistique:'secteur',
+  // Géo
+  paca:'geo',provence:'geo','île-de-france':'geo','idf':'geo',bretagne:'geo',
+  normandie:'geo',occitanie:'geo','auvergne-rhône-alpes':'geo',hauts:'geo',
+  france:'geo',europe:'geo',régional:'geo',national:'geo',
+  // Financier
+  'ca':'financier','ebitda':'financier','chiffre':'financier',rentabilité:'financier',
+  marge:'financier',trésorerie:'financier',bfr:'financier',dette:'financier',
+  financement:'financier',valorisation:'financier','lbo':'financier',
+  // Opérationnel
+  bfr:'operationnel',stocks:'operationnel',optimisation:'operationnel',
+  croissance:'operationnel',développement:'operationnel',
+  // Stratégique
+  'bolt-on':'strategique',acquisition:'strategique',consolidation:'strategique',
+  synergies:'strategique',reprise:'strategique',cession:'strategique',
+  transmission:'strategique','mbo':'strategique','mbi':'strategique',
+};
+
+function categorize(word){
+  const lc=word.toLowerCase().replace(/[^a-zàâäéèêëîïôùûüç\-]/g,'');
+  if(CAT_MAP[lc]) return CAT_MAP[lc];
+  return 'default';
+}
+
+function extractWords(text){
+  if(!text) return {};
+  const words={};
+  text.toLowerCase()
+    .replace(/[<>\/\\{}[\]()#@*+=|~^]/g,' ')
+    .replace(/[.,;:!?«»""'']/g,' ')
+    .split(/\s+/)
+    .filter(w=>w.length>3 && !STOP.includes(w) && !/^\d+$/.test(w))
+    .forEach(w=>{words[w]=(words[w]||0)+1;});
+  return words;
+}
+
+function mergeWords(...objs){
+  const merged={};
+  objs.forEach(obj=>{
+    if(!obj) return;
+    Object.entries(obj).forEach(([w,n])=>{merged[w]=(merged[w]||0)+n;});
+  });
+  return merged;
+}
+
+// Normaliser la structure GPT après import XML (les tableaux peuvent être des objets)
+function normalizeGptData(d){
+  if(!d) return {};
+  // Forcer atouts, risques, leviers, etapes en tableaux
+  const toArr=v=>{
+    if(!v) return [];
+    if(Array.isArray(v)) return v;
+    if(typeof v==='object') return Object.values(v);
+    if(typeof v==='string') return [{titre:v,detail:'',text:v}];
+    return [];
+  };
+  d.atouts=toArr(d.atouts).map(a=>typeof a==='string'?{titre:a,detail:''}:a);
+  d.risques=toArr(d.risques).map(r=>typeof r==='string'?{titre:r,detail:'',niv:''}:r);
+  d.leviers=toArr(d.leviers).map(l=>typeof l==='string'?l:(l.text||l.titre||JSON.stringify(l)));
+  d.etapes=toArr(d.etapes).map(e=>typeof e==='string'?e:(e.text||e.titre||JSON.stringify(e)));
+  return d;
+}
+
+// Construire le nuage depuis une fiche opportunité
+function buildOppCloud(opp){
+  const form=opp.formulaire||{};
+  const gptData=opp.donneesGpt||{};
+
+  // Textes à analyser avec poids
+  const texts=[
+    {t:(form.secteur||'')+' '+(form.soussecteur||''), w:3},
+    {t:form.region||'', w:3},
+    {t:form.activite||'', w:2},
+    {t:(gptData.synthese||''), w:2},
+    {t:(gptData.activite_detail||'')+(gptData.position_marche||''), w:2},
+    {t:Array.isArray(gptData.atouts)?(gptData.atouts).map(a=>(a.titre||'')+' '+(a.detail||'')).join(' '):'', w:2},
+    {t:(gptData.these||''), w:2},
+    {t:Array.isArray(gptData.leviers)?gptData.leviers.map(l=>typeof l==='string'?l:(l.text||'')).join(' '):'', w:1},
+    {t:(gptData.conclusion||''), w:1},
+  ];
+
+  let merged={};
+  texts.forEach(({t,w})=>{
+    const ws=extractWords(t);
+    Object.entries(ws).forEach(([word,n])=>{merged[word]=(merged[word]||0)+n*w;});
+  });
+
+  // Ajouter tags structurés forts
+  const tags=[
+    form.secteur,form.region,form.forme,
+    form.ca>5000?'PME-large':form.ca>2000?'PME':'TPE',
+    form.effectif,
+  ].filter(Boolean);
+  tags.forEach(t=>{
+    const lc=t.toLowerCase();
+    merged[lc]=(merged[lc]||0)+5;
+  });
+
+  // Ajouter tranche CA
+  const ca=parseInt(form.ca)||0;
+  if(ca>0){
+    const tranche=ca<2000?'micro-cap':ca<5000?'petite-cap':ca<15000?'mid-small':'mid-cap';
+    merged[tranche]=(merged[tranche]||0)+4;
+  }
+
+  return merged;
+}
+
+// Construire le nuage depuis une fiche acquéreur
+function buildAcqCloud(acq){
+  const texts=[
+    {t:acq.secteurs||'', w:3},
+    {t:acq.geo||'', w:3},
+    {t:acq.desc||'', w:2},
+    {t:acq.kw||'', w:2},
+    {t:acq.type||'', w:2},
+  ];
+  let merged={};
+  texts.forEach(({t,w})=>{
+    const ws=extractWords(t);
+    Object.entries(ws).forEach(([word,n])=>{merged[word]=(merged[word]||0)+n*w;});
+  });
+
+  // Tags structurés forts
+  if(acq.geo){const lc=acq.geo.toLowerCase().trim();merged[lc]=(merged[lc]||0)+5;}
+  if(acq.secteurs){
+    acq.secteurs.split(/[,;\/]/).map(s=>s.trim().toLowerCase()).filter(Boolean).forEach(s=>{
+      merged[s]=(merged[s]||0)+5;
+    });
+  }
+  if(acq.kw){
+    acq.kw.split(',').map(s=>s.trim().toLowerCase()).filter(Boolean).forEach(s=>{
+      merged[s]=(merged[s]||0)+4;
+    });
+  }
+
+  // Tranche CA cherchée
+  const caMin=parseInt(acq.caMin)||0, caMax=parseInt(acq.caMax)||0;
+  if(caMin>0||caMax>0){
+    const mid=(caMin+caMax)/2||caMin||caMax;
+    const tranche=mid<2000?'micro-cap':mid<5000?'petite-cap':mid<15000?'mid-small':'mid-cap';
+    merged[tranche]=(merged[tranche]||0)+4;
+  }
+
+  return merged;
+}
+
+// Extraire les mots-clés via GPT
+async function genAcqCloud(){
+  const desc=document.getElementById('aq-desc').value;
+  const secteurs=document.getElementById('aq-secteurs').value;
+  const kw=document.getElementById('aq-kw').value;
+  if(!desc&&!secteurs){toast('Renseignez au moins la description ou les secteurs','err');return;}
+  showGening('Extraction des mots-clés par GPT…');
+  try{
+    const res=await gpt([
+      {role:'system',content:'Tu extrais des mots-clés de matching M&A depuis une fiche acquéreur. Réponds en JSON.'},
+      {role:'user',content:`Fiche acquéreur : ${desc} | Secteurs : ${secteurs} | Mots-clés : ${kw}
+Extrais les mots-clés significatifs pour le matching M&A : secteurs, zones géo, taille entreprise, type d'opération, compétences recherchées.
+JSON:{"mots_cles":["mot1","mot2","mot3","...jusqu_a_20_mots_pertinents"],"secteurs":["..."],"geo":["..."],"type_operation":["reprise","bolt-on","..."]}`}
+    ]);
+    // Fusionner avec les mots extraits localement
+    const localWords=buildAcqCloud({desc,secteurs,geo:document.getElementById('aq-geo').value,kw,type:document.getElementById('aq-type').value});
+    if(res.mots_cles) res.mots_cles.forEach(w=>{const lc=w.toLowerCase();localWords[lc]=(localWords[lc]||0)+3;});
+    if(res.secteurs) res.secteurs.forEach(s=>{const lc=s.toLowerCase();localWords[lc]=(localWords[lc]||0)+5;});
+    if(res.geo) res.geo.forEach(g=>{const lc=g.toLowerCase();localWords[lc]=(localWords[lc]||0)+5;});
+    if(res.type_operation) res.type_operation.forEach(t=>{const lc=t.toLowerCase();localWords[lc]=(localWords[lc]||0)+4;});
+
+    renderCloudInEl(localWords,'aq-cloud');
+    document.getElementById('aq-cloud-section').style.display='block';
+    // Stocker temporairement pour la sauvegarde
+    window._tempAcqWords=localWords;
+    toast('Mots-clés extraits','ok');
+  }catch(e){toast('Erreur GPT : '+e.message,'err');}
+  finally{hideGening();}
+}
+
+// Rendu visuel du nuage
+function renderCloudInEl(words, elId, maxWords){
+  const el=document.getElementById(elId);
+  if(!el) return;
+  const max=maxWords||40;
+  const sorted=Object.entries(words).sort((a,b)=>b[1]-a[1]).slice(0,max);
+  const maxVal=sorted[0]?sorted[0][1]:1;
+  el.innerHTML=sorted.map(([w,n])=>{
+    const size=n/maxVal>0.66?'w3':n/maxVal>0.33?'w2':'w1';
+    const cat='cat-'+categorize(w);
+    return `<span class="cloud-word ${size} ${cat}" title="${n} occ.">${w}</span>`;
+  }).join('');
+}
+
+// ══ SCORING ════════════════════════════════════════════════════════════════════
+
+function cosineSim(wordsA, wordsB){
+  if(!wordsA||!wordsB) return 0;
+  const allWords=new Set([...Object.keys(wordsA),...Object.keys(wordsB)]);
+  let dot=0,normA=0,normB=0;
+  allWords.forEach(w=>{
+    const a=wordsA[w]||0, b=wordsB[w]||0;
+    dot+=a*b; normA+=a*a; normB+=b*b;
+  });
+  if(!normA||!normB) return 0;
+  return dot/(Math.sqrt(normA)*Math.sqrt(normB));
+}
+
+// Score par dimensions
+function scoreMatch(opp, acq){
+  const oppW=opp.words||{};
+  const acqW=acq.words||{};
+
+  // 1. Score sémantique global (cosinus)
+  const semScore=Math.round(cosineSim(oppW,acqW)*100);
+
+  // 2. Score géographique (exact match région)
+  let geoScore=0;
+  const oppReg=(opp.region||'').toLowerCase();
+  const acqGeo=(acq.geo||'').toLowerCase();
+  if(oppReg&&acqGeo){
+    if(acqGeo.includes(oppReg)||oppReg.includes(acqGeo)) geoScore=100;
+    else if(acqGeo.includes('france')||acqGeo.includes('national')) geoScore=60;
+    else geoScore=20;
+  }
+
+  // 3. Score financier (tranche CA)
+  let finScore=0;
+  const oppCa=parseInt(opp.ca)||0;
+  const acqCaMin=parseInt(acq.caMin)||0, acqCaMax=parseInt(acq.caMax)||Infinity;
+  if(oppCa>0&&(acqCaMin>0||acqCaMax<Infinity)){
+    if(oppCa>=acqCaMin&&oppCa<=acqCaMax) finScore=100;
+    else if(oppCa>=acqCaMin*0.7&&oppCa<=acqCaMax*1.3) finScore=60;
+    else finScore=20;
+  } else finScore=50; // pas de critère = neutre
+
+  // 4. Score sectoriel (mots secteur en commun)
+  const oppSect=(opp.secteur||'').toLowerCase();
+  const acqSect=(acq.secteurs||'').toLowerCase();
+  let sectScore=0;
+  if(oppSect&&acqSect){
+    const oppSectWords=oppSect.split(/[,;\/\s]+/).filter(Boolean);
+    const acqSectWords=acqSect.split(/[,;\/\s]+/).filter(Boolean);
+    const matches=oppSectWords.filter(w=>acqSectWords.some(a=>a.includes(w)||w.includes(a)));
+    sectScore=matches.length>0?Math.min(100,matches.length*50):10;
+  } else sectScore=40; // pas de secteur renseigné = neutre
+
+  // Score total pondéré
+  const total=Math.round(semScore*0.35+geoScore*0.20+finScore*0.25+sectScore*0.20);
+
+  // Mots en commun significatifs
+  const commonWords=Object.keys(oppW).filter(w=>acqW[w]&&oppW[w]>1&&acqW[w]>1&&w.length>4).sort((a,b)=>(oppW[b]+acqW[b])-(oppW[a]+acqW[a])).slice(0,10);
+
+  return {total, semScore, geoScore, finScore, sectScore, commonWords};
+}
+
+// ══ MATCHING ═══════════════════════════════════════════════════════════════════
+
+function runMatching(){
+  const opp=opportunites.find(o=>o.id===activeOppId);
+  if(!opp){toast('Sélectionnez une opportunité','err');return;}
+  if(!acquereurs.length){toast('Ajoutez des projets acquéreurs','err');return;}
+
+  // Construire les nuages si pas encore fait
+  if(!opp.words) opp.words=buildOppCloud(opp);
+  acquereurs.forEach(a=>{if(!a.words) a.words=buildAcqCloud(a);});
+
+  // Scorer chaque acquéreur
+  const results=acquereurs.map(acq=>{
+    const scores=scoreMatch(opp,acq);
+    return {acq,scores};
+  }).sort((a,b)=>b.scores.total-a.scores.total);
+
+  renderResults(opp, results);
+  toast('Matching terminé — '+results.length+' acquéreurs analysés','ok');
+}
+
+function renderResults(opp, results){
+  const el=document.getElementById('res-content');
+  if(!results.length){el.innerHTML='<div class="empty-state"><div class="ic">🔍</div><h3>Aucun résultat</h3></div>';return;}
+
+  const html=`<div style="margin-bottom:14px">
+    <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px">Opportunité analysée</div>
+    <div style="font-size:13px;font-weight:700;color:var(--navy)">${opp.nom}</div>
+    <div style="font-size:11px;color:var(--gray)">${opp.region||'—'} · CA ${opp.ca||'NC'} k€ · EBITDA ${opp.ebitda||'NC'} k€</div>
+  </div>
+  <hr class="sep-light">
+  <div style="font-size:10px;color:var(--gray);margin-bottom:10px">${results.length} acquéreur(s) · classés par score</div>
+  `+results.map(({acq,scores})=>{
+    const scoreClass=scores.total>=70?'score-high':scores.total>=45?'score-mid':'score-low';
+    const bars=[
+      {lbl:'Sémantique',val:scores.semScore,color:'var(--navy)'},
+      {lbl:'Géographie',val:scores.geoScore,color:'var(--green)'},
+      {lbl:'Financier',val:scores.finScore,color:'var(--gold)'},
+      {lbl:'Sectoriel',val:scores.sectScore,color:'var(--navy2)'},
+    ];
+    const barsHtml=bars.map(b=>`<div class="match-bar-row">
+      <div class="match-bar-lbl">${b.lbl}</div>
+      <div class="match-bar-track"><div class="match-bar-fill" style="width:${b.val}%;background:${b.color}"></div></div>
+      <div class="match-bar-val">${b.val}</div>
+    </div>`).join('');
+    const commonHtml=scores.commonWords.map(w=>`<span class="match-tag-common">${w}</span>`).join('');
+    return `<div class="match-card">
+      <div class="match-header">
+        <div>
+          <div class="match-nom">${acq.nom}</div>
+          <div style="font-size:11px;color:var(--gray)">${acq.type||'—'} · ${acq.geo||'—'}</div>
+        </div>
+        <div class="match-score-badge ${scoreClass}">${scores.total}<span style="font-size:12px;font-weight:400">/100</span></div>
+      </div>
+      <div class="match-bars">${barsHtml}</div>
+      ${commonHtml?`<div style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-top:8px;margin-bottom:4px">Mots en commun</div><div class="match-tags-common">${commonHtml}</div>`:''}
+      <div class="match-actions">
+        <button class="btn btn-navy btn-sm" onclick="genApproche('${acq.id}','${opp.id}')">✉ Rédiger l'approche</button>
+        <button class="btn btn-outline btn-sm" onclick="showAcqDetail('${acq.id}')">Fiche</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML=html;
+}
+
+// ══ RÉDACTION APPROCHE GPT ═══════════════════════════════════════════════════
+
+async function genApproche(acqId, oppId){
+  const acq=acquereurs.find(a=>a.id===acqId);
+  const opp=opportunites.find(o=>o.id===oppId);
+  if(!acq||!opp){toast('Données manquantes','err');return;}
+  const scores=scoreMatch(opp,acq);
+
+  showGening('Rédaction du message d\'approche…');
+  try{
+    const res=await gpt([
+      {role:'system',content:'Tu es conseiller M&A chez Arcéane. Rédige des messages d\'approche professionnels et personnalisés. Réponds en JSON.'},
+      {role:'user',content:`Rédige un message d'approche pour présenter une opportunité à un acquéreur potentiel.
+Acquéreur : ${acq.nom} (${acq.type}) — Projet : ${acq.desc} — Secteurs : ${acq.secteurs} — Zone : ${acq.geo}
+Opportunité : société dans ${opp.region}, secteur ${opp.secteur||opp.formulaire?.soussecteur||'NC'}, CA ${opp.ca}k€, EBITDA ${opp.ebitda}k€
+Mots en commun identifiés : ${scores.commonWords.join(', ')}
+Score de matching : ${scores.total}/100
+
+JSON:{"sujet":"Objet de l'email","message":"Corps du message en 3-4 paragraphes, professionnel, personnalisé"}`}
+    ],1500);
+    showApproche(acq, opp, res);
+    toast('Message rédigé','ok');
+  }catch(e){toast('Erreur GPT : '+e.message,'err');}
+  finally{hideGening();}
+}
+
+function showApproche(acq, opp, res){
+  const modal=document.createElement('div');
+  modal.style.cssText='position:fixed;inset:0;background:rgba(27,42,74,.7);z-index:600;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)';
+  modal.innerHTML=`<div style="background:var(--white);border-radius:8px;padding:28px 32px;max-width:560px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:var(--shl)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px">Message d'approche</div>
+        <div style="font-size:14px;font-weight:700;color:var(--navy)">${acq.nom} ← ${opp.nom}</div>
+      </div>
+      <button onclick="this.closest('div[style]').remove()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray)">✕</button>
+    </div>
+    <div style="background:var(--cream2);border-radius:4px;padding:8px 12px;margin-bottom:12px;font-size:12px">
+      <strong>Objet :</strong> ${res.sujet||'—'}
+    </div>
+    <div style="font-size:12px;line-height:1.7;white-space:pre-line;color:var(--navy)" contenteditable="true">${res.message||''}</div>
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button onclick="navigator.clipboard.writeText(this.closest('div[style]').querySelector('[contenteditable]').innerText).then(()=>toast('Copié','ok'))" class="btn btn-gold btn-sm">Copier</button>
+      <button onclick="this.closest('div[style]').remove()" class="btn btn-outline btn-sm">Fermer</button>
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+}
+
+// ══ IMPORT XML OPPORTUNITÉ ════════════════════════════════════════════════════
+
+function importOppXml(file){
+  if(!file) return;
+  const r=new FileReader();
+  r.onload=e=>{
+    try{
+      const parser=new DOMParser();
+      const doc=parser.parseFromString(e.target.result,'application/xml');
+      const root=doc.documentElement;
+      if(root.tagName!=='arcane_document') throw new Error('Format XML Arcéane attendu');
+      const type=root.getAttribute('type');
+      if(type!=='preanalyse') throw new Error('Seuls les XML de type "preanalyse" sont supportés');
+
+      const get=(tag)=>{const el=root.querySelector(tag);return el?el.textContent.trim():'';};
+
+      // Récupérer le formulaire
+      const formNode=root.querySelector('formulaire');
+      const form={};
+      if(formNode){
+        ['nom','secteur','soussecteur','region','ca','ebitda','rn','annee','cp','dette',
+         'activite','effectif','siren','motif','typeacq','timing','valo','atouts','risques'].forEach(k=>{
+          const el=formNode.querySelector(k);
+          if(el) form[k]=el.textContent.trim();
+        });
+      }
+
+      // Récupérer les données GPT
+      let donneesGpt={};
+      const gptNode=root.querySelector('donnees_gpt');
+      if(gptNode){
+        const xmlToObj=(node)=>{
+          if(!node.children.length) return node.textContent;
+          const obj={};
+          Array.from(node.children).forEach(c=>{
+            const k=c.tagName;
+            const v=xmlToObj(c);
+            if(obj[k]!==undefined){if(!Array.isArray(obj[k]))obj[k]=[obj[k]];obj[k].push(v);}
+            else obj[k]=v;
+          });
+          return obj;
+        };
+        donneesGpt=xmlToObj(gptNode);
+      }
+
+      // Récupérer le HTML édité (CDATA)
+      let htmlEdite='';
+      const htmlNode=root.querySelector('html_edite');
+      if(htmlNode) htmlEdite=htmlNode.textContent||'';
+
+      const opp={
+        id:'opp_'+Date.now(),
+        nom:form.nom||get('nom_societe')||file.name,
+        region:form.region||get('region'),
+        secteur:form.secteur||form.soussecteur,
+        ca:parseInt(form.ca)||0,
+        ebitda:parseInt(form.ebitda)||0,
+        rn:parseInt(form.rn)||0,
+        annee:form.annee||get('annee'),
+        formulaire:form,
+        donneesGpt,
+        htmlEdite,
+        words:null, // calculé au matching
+        importedAt:new Date().toLocaleDateString('fr-FR')
+      };
+      opp.donneesGpt=normalizeGptData(opp.donneesGpt);
+      opp.words=buildOppCloud(opp);
+
+      opportunites.push(opp);
+      activeOppId=opp.id;
+      renderOppList();
+      document.getElementById('match-btn-zone').style.display='block';
+      toast('Opportunité importée : '+opp.nom,'ok');
+    }catch(err){toast('Erreur XML : '+err.message,'err');console.error(err);}
+  };
+  r.readAsText(file,'utf-8');
+}
+
+function renderOppList(){
+  const el=document.getElementById('opp-list');
+  if(!opportunites.length){
+    el.innerHTML='<div class="empty-state"><div class="ic">🏢</div><h3>Aucune opportunité</h3><p>Importez un XML depuis le Teaser Generator</p></div>';
+    return;
+  }
+  el.innerHTML=opportunites.map(o=>`<div class="opp-card${o.id===activeOppId?' active':''}" onclick="openPreanalyseModal('${o.id}')">
+    <div class="opp-del" onclick="event.stopPropagation();deleteOpp('${o.id}')">✕</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px">
+      <div class="opp-nom">${o.nom}</div>
+      <span style="font-size:9px;background:var(--navy);color:var(--gold);padding:2px 8px;border-radius:10px;flex-shrink:0;margin-left:8px">Voir la fiche →</span>
+    </div>
+    <div class="opp-sub">${o.region||'—'} · CA ${o.ca||'NC'} k€ · EBITDA ${o.ebitda||'NC'} k€ · ${o.annee||'—'}</div>
+    <div style="margin-top:8px">
+      <div style="font-size:9px;color:var(--gray);margin-bottom:4px">Nuage de mots</div>
+      <div id="opp-cloud-${o.id}" style="display:flex;flex-wrap:wrap;gap:3px"></div>
+    </div>
+  </div>`).join('');
+
+  // Afficher les nuages
+  opportunites.forEach(o=>{
+    if(o.words) renderCloudInEl(o.words,'opp-cloud-'+o.id,20);
+  });
+}
+
+function selectOpp(id){
+  activeOppId=id;
+  renderOppList();
+  document.getElementById('match-btn-zone').style.display='block';
+}
+
+function deleteOpp(id){
+  opportunites=opportunites.filter(o=>o.id!==id);
+  if(activeOppId===id){activeOppId=null;document.getElementById('match-btn-zone').style.display='none';}
+  renderOppList();
+}
+
+// ══ IMPORT DOCUMENT ACQUÉREUR ════════════════════════════════════════════════
+
+async function importAcqDoc(file){
+  if(!file) return;
+  showGening('Lecture du document…');
+  try{
+    let text='';
+    if(file.name.endsWith('.xml')){
+      text=await file.text();
+      // Extraire le texte brut du XML
+      text=text.replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&apos;/g,"'").replace(/&quot;/g,'"');
+    } else if(file.name.endsWith('.txt')){
+      text=await file.text();
+    } else if(file.name.endsWith('.pdf')){
+      toast('PDF : extraction texte non disponible en standalone — utilisez .txt ou .xml','');
+      hideGening();return;
+    }
+
+    if(!text.trim()){toast('Document vide ou non lisible','err');hideGening();return;}
+    text=text.substring(0,8000); // limiter
+
+    document.getElementById('gen-step').textContent='Extraction des informations acquéreur…';
+    const res=await gpt([
+      {role:'system',content:'Tu extrais des informations de cadrage d\'un projet de reprise depuis un document texte. Réponds en JSON.'},
+      {role:'user',content:`Extrait les informations de ce document de projet acquéreur :
+${text}
+
+JSON:{"nom":"nom ou raison sociale","type":"Particulier repreneur ou Industriel ou Investisseur financier ou Groupe stratégique","desc":"description du projet en 2-3 phrases","secteurs":"secteurs recherchés","geo":"zones géographiques ciblées","ca_min":"CA minimum k€ ou vide","ca_max":"CA maximum k€ ou vide","budget":"budget ou apport k€ ou vide","kw":"mots-clés importants séparés par virgule","contact":"email ou téléphone ou vide"}`}
+    ],1000);
+
+    // Pré-remplir le formulaire
+    openAcqForm();
+    if(res.nom) document.getElementById('aq-nom').value=res.nom;
+    if(res.type){const sel=document.getElementById('aq-type');Array.from(sel.options).forEach(o=>{if(o.text.toLowerCase().includes(res.type.toLowerCase()))sel.value=o.value;});}
+    if(res.desc) document.getElementById('aq-desc').value=res.desc;
+    if(res.secteurs) document.getElementById('aq-secteurs').value=res.secteurs;
+    if(res.geo) document.getElementById('aq-geo').value=res.geo;
+    if(res.ca_min) document.getElementById('aq-ca-min').value=res.ca_min;
+    if(res.ca_max) document.getElementById('aq-ca-max').value=res.ca_max;
+    if(res.budget) document.getElementById('aq-budget').value=res.budget;
+    if(res.kw) document.getElementById('aq-kw').value=res.kw;
+    if(res.contact) document.getElementById('aq-contact').value=res.contact;
+
+    // Générer le nuage
+    await genAcqCloud();
+    toast('Document analysé — vérifiez et enregistrez','ok');
+  }catch(e){toast('Erreur : '+e.message,'err');console.error(e);}
+  finally{hideGening();}
+}
+
+// ══ GESTION ACQUÉREURS ═══════════════════════════════════════════════════════
+
+function openAcqForm(id){
+  editingAcqId=id||null;
+  const drawer=document.getElementById('acq-drawer');
+  // Masquer la liste, afficher le drawer en pleine hauteur
+  document.getElementById('acq-list-zone').classList.add('hidden');
+  drawer.classList.add('open');
+  document.getElementById('app').classList.add('drawer-open');
+  document.getElementById('acq-form-title').textContent=id?'Modifier le projet':'Nouveau projet acquéreur';
+  // Recalculer le nuage en temps réel au focus
+  ['aq-desc','aq-secteurs','aq-geo','aq-kw'].forEach(fid=>{
+    const el=document.getElementById(fid);
+    if(el) el.oninput=()=>previewAcqCloud();
+  });
+  if(id){
+    const acq=acquereurs.find(a=>a.id===id);
+    if(acq){
+      document.getElementById('aq-nom').value=acq.nom||'';
+      document.getElementById('aq-type').value=acq.type||'';
+      document.getElementById('aq-desc').value=acq.desc||'';
+      document.getElementById('aq-secteurs').value=acq.secteurs||'';
+      document.getElementById('aq-geo').value=acq.geo||'';
+      document.getElementById('aq-ca-min').value=acq.caMin||'';
+      document.getElementById('aq-ca-max').value=acq.caMax||'';
+      document.getElementById('aq-ebi-min').value=acq.ebiMin||'';
+      document.getElementById('aq-budget').value=acq.budget||'';
+      document.getElementById('aq-kw').value=acq.kw||'';
+      document.getElementById('aq-contact').value=acq.contact||'';
+      if(acq.words){renderCloudInEl(acq.words,'aq-cloud');window._tempAcqWords=acq.words;}
+      else previewAcqCloud();
+    }
+  } else {
+    ['aq-nom','aq-desc','aq-secteurs','aq-geo','aq-ca-min','aq-ca-max','aq-ebi-min','aq-budget','aq-kw','aq-contact'].forEach(fid=>{document.getElementById(fid).value='';});
+    document.getElementById('aq-type').value='';
+    document.getElementById('aq-cloud').innerHTML='<div style="font-size:11px;color:var(--border);font-style:italic">Renseignez les critères pour voir le nuage</div>';
+    window._tempAcqWords=null;
+  }
+}
+
+function previewAcqCloud(){
+  // Aperçu temps réel du nuage sans GPT
+  const tmp={
+    desc:document.getElementById('aq-desc').value,
+    secteurs:document.getElementById('aq-secteurs').value,
+    geo:document.getElementById('aq-geo').value,
+    kw:document.getElementById('aq-kw').value,
+    type:document.getElementById('aq-type').value,
+    caMin:document.getElementById('aq-ca-min').value,
+    caMax:document.getElementById('aq-ca-max').value,
+  };
+  const words=buildAcqCloud(tmp);
+  if(Object.keys(words).length>0){
+    renderCloudInEl(words,'aq-cloud');
+    window._tempAcqWords=words;
+  }
+}
+
+function closeAcqForm(){
+  document.getElementById('acq-drawer').classList.remove('open');
+  document.getElementById('acq-list-zone').classList.remove('hidden');
+  document.getElementById('app').classList.remove('drawer-open');
+  editingAcqId=null;
+  window._tempAcqWords=null;
+}
+
+function saveAcquereur(){
+  const nom=document.getElementById('aq-nom').value.trim();
+  if(!nom){toast('Nom requis','err');return;}
+
+  // Construire les mots si pas déjà fait
+  const desc=document.getElementById('aq-desc').value;
+  const secteurs=document.getElementById('aq-secteurs').value;
+  const geo=document.getElementById('aq-geo').value;
+  const kw=document.getElementById('aq-kw').value;
+  const type=document.getElementById('aq-type').value;
+  const caMin=document.getElementById('aq-ca-min').value;
+  const caMax=document.getElementById('aq-ca-max').value;
+
+  const newAcq={
+    id:editingAcqId||'acq_'+Date.now(),
+    nom,type,desc,secteurs,geo,
+    caMin:parseInt(caMin)||0,caMax:parseInt(caMax)||0,
+    ebiMin:parseInt(document.getElementById('aq-ebi-min').value)||0,
+    budget:parseInt(document.getElementById('aq-budget').value)||0,
+    kw,contact:document.getElementById('aq-contact').value,
+    words:window._tempAcqWords||buildAcqCloud({desc,secteurs,geo,kw,type,caMin,caMax}),
+    updatedAt:new Date().toLocaleDateString('fr-FR')
+  };
+
+  if(editingAcqId){
+    acquereurs=acquereurs.map(a=>a.id===editingAcqId?newAcq:a);
+  } else {
+    acquereurs.push(newAcq);
+  }
+  saveState();
+  renderAcqList();
+  closeAcqForm();
+  toast((editingAcqId?'Projet modifié':'Projet ajouté')+' : '+nom,'ok');
+  driveSaveAcq(newAcq);
+}
+
+function renderAcqList(){
+  const el=document.getElementById('acq-list');
+  if(!acquereurs.length){
+    el.innerHTML='<div class="acq-empty"><div class="ic">🎯</div><p>Aucun projet acquéreur.<br>Ajoutez-en un ou importez un document.</p></div>';
+    return;
+  }
+  el.innerHTML=acquereurs.map(a=>`<div class="acq-card" onclick="openAcqForm('${a.id}')">
+    <div class="acq-del" onclick="event.stopPropagation();deleteAcq('${a.id}')">✕</div>
+    <div class="acq-nom">${a.nom}</div>
+    <div class="acq-sub">${a.type||'—'} · ${a.geo||'zone NC'} · CA ${a.caMin||'?'}–${a.caMax||'?'} k€</div>
+    <div class="acq-tags">${(a.secteurs||'').split(/[,;]/).filter(Boolean).slice(0,3).map(s=>`<span class="acq-tag">${s.trim()}</span>`).join('')}</div>
+    ${a.words?`<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:3px">${Object.entries(a.words).sort((x,y)=>y[1]-x[1]).slice(0,12).map(([w])=>`<span style="background:rgba(27,42,74,.08);color:var(--navy);font-size:9px;padding:1px 6px;border-radius:8px">${w}</span>`).join('')}</div>`:''}
+  </div>`).join('');
+}
+
+function deleteAcq(id){
+  acquereurs=acquereurs.filter(a=>a.id!==id);
+  saveState();
+  renderAcqList();
+}
+
+function showAcqDetail(id){
+  const acq=acquereurs.find(a=>a.id===id);
+  if(!acq) return;
+  openAcqForm(id);
+  document.getElementById('acq-drawer').scrollIntoView({behavior:'smooth'});
+}
+
+// ══ UI HELPERS ════════════════════════════════════════════════════════════════
+
+function showGening(msg){
+  document.getElementById('gen-step').textContent=msg||'En cours…';
+  document.getElementById('gening').classList.add('show');
+}
+function hideGening(){document.getElementById('gening').classList.remove('show');}
+function toast(msg,type){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast show'+(type?' '+type:'');
+  setTimeout(()=>t.className='toast',3500);
+}
+
+// ══ MODAL PRÉANALYSE ════════════════════════════════════════════════════════════
+
+function openPreanalyseModal(id){
+  const opp=opportunites.find(o=>o.id===id);
+  if(!opp) return;
+  // Sélectionner l'opportunité
+  selectOpp(id);
+  // Renseigner le header
+  document.getElementById('modal-opp-nom').textContent=opp.nom;
+  document.getElementById('modal-opp-sub').textContent=(opp.region||'—')+' · CA '+(opp.ca||'NC')+' k€ · EBITDA '+(opp.ebitda||'NC')+' k€ · '+(opp.annee||'—');
+  // Injecter le HTML de la préanalyse
+  const body=document.getElementById('preanalyse-modal-body');
+  if(opp.htmlEdite&&opp.htmlEdite.trim()){
+    body.innerHTML=opp.htmlEdite;
+    // Réappliquer les styles inline nécessaires
+    body.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
+  } else {
+    // Pas de HTML sauvegardé → afficher les données brutes
+    body.innerHTML=renderOppSummary(opp);
+  }
+  document.getElementById('preanalyse-modal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function closePreanalyseModal(){
+  document.getElementById('preanalyse-modal').classList.remove('show');
+  document.body.style.overflow='';
+}
+
+function runMatchingFromModal(){
+  closePreanalyseModal();
+  setTimeout(()=>runMatching(),100);
+}
+
+function renderOppSummary(opp){
+  // Fallback si pas de HTML : afficher les données disponibles proprement
+  const f=opp.formulaire||{};
+  const g=opp.donneesGpt||{};
+  const atoutsHtml=(g.atouts||[]).map(a=>`<div style="padding:8px 0;border-bottom:1px solid #eee">
+    <strong style="font-size:13px">${a.titre||''}</strong>
+    <p style="font-size:12px;color:#555;margin-top:3px;line-height:1.6">${a.detail||''}</p>
+  </div>`).join('');
+  const risquesHtml=(g.risques||[]).map(r=>`<div style="padding:8px 0;border-bottom:1px solid #eee;display:flex;gap:10px">
+    <span style="background:${r.niv==='Élevé'?'#fde8e8':r.niv==='Modéré'?'#fef3cd':'#e8f5e9'};color:${r.niv==='Élevé'?'#c0392b':r.niv==='Modéré'?'#856404':'#1e7f5e'};padding:2px 10px;border-radius:20px;font-size:10px;white-space:nowrap;height:fit-content">${r.niv||'—'}</span>
+    <div><strong style="font-size:13px">${r.titre||''}</strong><p style="font-size:12px;color:#555;margin-top:3px;line-height:1.6">${r.detail||''}</p></div>
+  </div>`).join('');
+  return `<div style="font-family:Raleway,sans-serif;padding:8px 0">
+    ${g.synthese?`<div style="background:#F5EDD6;border-radius:4px;padding:14px 16px;margin-bottom:16px;font-size:13px;line-height:1.7;color:#1B2A4A"><strong>Synthèse</strong><br><br>${g.synthese}</div>`:''}
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
+      ${[['CA',opp.ca+'k€'],['EBITDA',opp.ebitda+'k€'],['RN',opp.rn+'k€'],['Année',opp.annee]].map(([l,v])=>`<div style="background:#F8F4EE;border-radius:4px;padding:10px 12px"><div style="font-size:9px;color:#8A8F9E;letter-spacing:1px;text-transform:uppercase">${l}</div><div style="font-size:17px;font-weight:700;color:#1B2A4A;margin-top:3px">${v||'NC'}</div></div>`).join('')}
+    </div>
+    ${g.activite_detail?`<div style="margin-bottom:14px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:6px">Activité</div><p style="font-size:12px;line-height:1.7;color:#333">${g.activite_detail}</p></div>`:''}
+    ${atoutsHtml?`<div style="margin-bottom:14px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:6px">Atouts & Différenciants</div>${atoutsHtml}</div>`:''}
+    ${risquesHtml?`<div style="margin-bottom:14px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:6px">Risques</div>${risquesHtml}</div>`:''}
+    ${g.these?`<div style="background:#F8F4EE;border-radius:4px;padding:14px 16px;margin-bottom:14px"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:6px">Thèse d'acquisition</div><p style="font-size:12px;line-height:1.7">${g.these}</p></div>`:''}
+  </div>`;
+}
+
+
+// ══ GOOGLE DRIVE INTEGRATION ══════════════════════════════════════════════════
+const DRIVE_CONFIG = {
+  CLIENT_ID: '', // À renseigner dans localStorage si nécessaire
+  API_KEY: '',
+  FOLDER_OPP:  '1hE8ZoMcjrRS-cdJDZ0F85LlFmymi1g-4',
+  FOLDER_PROJ: '1L27xzr3kdi3fpVC6fc8ofOircmYYYMT3',
+  SCOPES: 'https://www.googleapis.com/auth/drive',
+  DISCOVERY: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
+};
+
+let driveReady = false;
+let driveToken = null;
+let gapiReady = false;
+let gisReady = false;
+let tokenClient = null;
+
+function gapiLoaded(){
+  gapi.load('client', async ()=>{
+    // On n'a besoin que de l'API Drive — pas besoin de clé API pour les requêtes OAuth
+    await gapi.client.init({
+      discoveryDocs: [DRIVE_CONFIG.DISCOVERY],
+    });
+    gapiReady = true;
+    checkDriveReady();
+  });
+}
+
+function checkDriveReady(){
+  if(!gapiReady) return;
+  // Essayer de récupérer un token existant en localStorage
+  const saved = localStorage.getItem('drive_token');
+  if(saved){
+    try{
+      const t = JSON.parse(saved);
+      if(t.expiry > Date.now()){
+        gapi.client.setToken({access_token: t.access_token});
+        driveToken = t.access_token;
+        driveReady = true;
+        updateDriveBtn(true);
+        driveLoadAll();
+        return;
+      }
+    }catch(e){}
+  }
+  updateDriveBtn(false);
+}
+
+function driveConnect(){
+  if(driveReady){ driveLoadAll(); return; }
+  const clientId = localStorage.getItem('drive_client_id') || prompt(
+    'Client ID Google OAuth 2.0 :\n(créez-en un sur console.cloud.google.com → APIs → Credentials)',
+    ''
+  );
+  if(!clientId) return;
+  localStorage.setItem('drive_client_id', clientId);
+
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: clientId,
+    scope: DRIVE_CONFIG.SCOPES,
+    callback: (resp) => {
+      if(resp.error){ toast('Erreur OAuth : '+resp.error,'err'); return; }
+      driveToken = resp.access_token;
+      driveReady = true;
+      // Sauvegarder avec expiry (3600s)
+      localStorage.setItem('drive_token', JSON.stringify({
+        access_token: resp.access_token,
+        expiry: Date.now() + 3500 * 1000
+      }));
+      gapi.client.setToken({access_token: resp.access_token});
+      updateDriveBtn(true);
+      driveLoadAll();
+    }
+  });
+  tokenClient.requestAccessToken({prompt: 'consent'});
+}
+
+function updateDriveBtn(connected){
+  const btn = document.getElementById('drive-btn');
+  const txt = document.getElementById('drive-status-txt');
+  if(!btn) return;
+  if(connected){
+    btn.className = 'drive-btn connected';
+    txt.textContent = '✓ Drive connecté';
+  } else {
+    btn.className = 'drive-btn';
+    txt.textContent = 'Connecter Drive';
+  }
+}
+
+function showDriveSync(msg){ const b=document.getElementById('drive-sync-bar'); if(b){b.classList.add('show');document.getElementById('drive-sync-msg').textContent=msg||'Sync Drive…';} }
+function hideDriveSync(){ const b=document.getElementById('drive-sync-bar'); if(b) b.classList.remove('show'); }
+
+// Charger tous les fichiers depuis Drive au démarrage
+async function driveLoadAll(){
+  if(!driveReady) return;
+  showDriveSync('Chargement des opportunités depuis Drive…');
+  try{
+    // Charger les opportunités
+    const oppFiles = await driveListXml(DRIVE_CONFIG.FOLDER_OPP);
+    let newOpps = 0;
+    for(const f of oppFiles){
+      const alreadyLoaded = opportunites.some(o => o.driveFileId === f.id);
+      if(!alreadyLoaded){
+        const xml = await driveDownload(f.id);
+        const opp = parseOppXml(xml, f.name);
+        if(opp){ opp.driveFileId = f.id; opportunites.push(opp); newOpps++; }
+      }
+    }
+
+    // Charger les projets acquéreurs
+    showDriveSync('Chargement des projets acquéreurs…');
+    const projFiles = await driveListXml(DRIVE_CONFIG.FOLDER_PROJ);
+    let newProjs = 0;
+    for(const f of projFiles){
+      const alreadyLoaded = acquereurs.some(a => a.driveFileId === f.id);
+      if(!alreadyLoaded){
+        const xml = await driveDownload(f.id);
+        const acq = parseAcqXml(xml, f.name);
+        if(acq){ acq.driveFileId = f.id; acquereurs.push(acq); newProjs++; }
+      }
+    }
+
+    saveState();
+    renderOppList();
+    renderAcqList();
+    if(opportunites.length) document.getElementById('match-btn-zone').style.display='block';
+    hideDriveSync();
+    if(newOpps+newProjs>0)
+      toast(newOpps+' opportunité(s) + '+newProjs+' projet(s) chargés depuis Drive','ok');
+    else
+      toast('Drive synchronisé — aucun nouveau fichier','');
+  }catch(e){
+    hideDriveSync();
+    toast('Erreur Drive : '+e.message,'err');
+    console.error(e);
+  }
+}
+
+async function driveListXml(folderId){
+  const resp = await gapi.client.drive.files.list({
+    q: `'${folderId}' in parents and mimeType='application/xml' and trashed=false`,
+    fields: 'files(id,name,modifiedTime)',
+    orderBy: 'modifiedTime desc',
+    pageSize: 50
+  });
+  return resp.result.files || [];
+}
+
+async function driveDownload(fileId){
+  const resp = await gapi.client.drive.files.get({
+    fileId: fileId,
+    alt: 'media'
+  });
+  return resp.body;
+}
+
+// Sauvegarder une opportunité sur Drive (format XML)
+async function driveSaveOpp(opp){
+  if(!driveReady){ toast('Connectez Drive pour sauvegarder',''); return; }
+  showDriveSync('Sauvegarde sur Drive…');
+  try{
+    const xml = buildOppXml(opp);
+    const filename = (opp.nom||'opportunite').replace(/[^a-z0-9]/gi,'_')+'_preanalyse.xml';
+    if(opp.driveFileId){
+      await driveUpdateFile(opp.driveFileId, xml);
+    } else {
+      const id = await driveCreateFile(filename, xml, DRIVE_CONFIG.FOLDER_OPP);
+      opp.driveFileId = id;
+    }
+    hideDriveSync();
+    toast('Opportunité sauvegardée sur Drive','ok');
+  }catch(e){ hideDriveSync(); toast('Erreur Drive save : '+e.message,'err'); }
+}
+
+// Sauvegarder un acquéreur sur Drive
+async function driveSaveAcq(acq){
+  if(!driveReady) return;
+  showDriveSync('Sauvegarde projet acquéreur…');
+  try{
+    const xml = buildAcqXml(acq);
+    const filename = (acq.nom||'projet').replace(/[^a-z0-9]/gi,'_')+'_projet.xml';
+    if(acq.driveFileId){
+      await driveUpdateFile(acq.driveFileId, xml);
+    } else {
+      const id = await driveCreateFile(filename, xml, DRIVE_CONFIG.FOLDER_PROJ);
+      acq.driveFileId = id;
+    }
+    hideDriveSync();
+  }catch(e){ hideDriveSync(); console.warn('Drive save acq:', e.message); }
+}
+
+async function driveCreateFile(name, content, folderId){
+  const boundary = 'arcane_boundary';
+  const meta = JSON.stringify({name, parents:[folderId], mimeType:'application/xml'});
+  const body = '--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+meta+
+    '\r\n--'+boundary+'\r\nContent-Type: application/xml\r\n\r\n'+content+'\r\n--'+boundary+'--';
+  const resp = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+    method: 'POST',
+    headers: {'Authorization':'Bearer '+driveToken, 'Content-Type':'multipart/related; boundary='+boundary},
+    body
+  });
+  const d = await resp.json();
+  if(d.error) throw new Error(d.error.message);
+  return d.id;
+}
+
+async function driveUpdateFile(fileId, content){
+  const resp = await fetch('https://www.googleapis.com/upload/drive/v3/files/'+fileId+'?uploadType=media', {
+    method: 'PATCH',
+    headers: {'Authorization':'Bearer '+driveToken, 'Content-Type':'application/xml'},
+    body: content
+  });
+  const d = await resp.json();
+  if(d.error) throw new Error(d.error.message);
+}
+
+// Parser XML opportunité (réutilise la logique d'importOppXml)
+function parseOppXml(xmlText, filename){
+  try{
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlText, 'application/xml');
+    const root = doc.documentElement;
+    if(root.tagName !== 'arcane_document') return null;
+    const get = (tag) => { const el=root.querySelector(tag); return el?el.textContent.trim():''; };
+    const formNode = root.querySelector('formulaire');
+    const form = {};
+    if(formNode){
+      ['nom','secteur','soussecteur','region','ca','ebitda','rn','annee','cp','dette',
+       'activite','effectif','siren','motif','typeacq','timing','valo','atouts','risques'].forEach(k=>{
+        const el=formNode.querySelector(k); if(el) form[k]=el.textContent.trim();
+      });
+    }
+    let donneesGpt = {};
+    const gptNode = root.querySelector('donnees_gpt');
+    if(gptNode){ const xmlToObj=(n)=>{if(!n.children.length)return n.textContent;const obj={};Array.from(n.children).forEach(c=>{const k=c.tagName;const v=xmlToObj(c);if(obj[k]!==undefined){if(!Array.isArray(obj[k]))obj[k]=[obj[k]];obj[k].push(v);}else obj[k]=v;});return obj;};donneesGpt=xmlToObj(gptNode); }
+    let htmlEdite = '';
+    const htmlNode = root.querySelector('html_edite');
+    if(htmlNode) htmlEdite = htmlNode.textContent || '';
+    const opp = {
+      id: 'opp_'+Date.now()+'_'+Math.random().toString(36).slice(2,6),
+      nom: form.nom||get('nom_societe')||filename,
+      region: form.region||get('region'),
+      secteur: form.secteur||form.soussecteur,
+      ca: parseInt(form.ca)||0, ebitda: parseInt(form.ebitda)||0,
+      rn: parseInt(form.rn)||0, annee: form.annee||get('annee'),
+      formulaire: form, donneesGpt: normalizeGptData(donneesGpt), htmlEdite,
+      words: null, importedAt: new Date().toLocaleDateString('fr-FR')
+    };
+    opp.words = buildOppCloud(opp);
+    return opp;
+  }catch(e){ console.error('parseOppXml:', e); return null; }
+}
+
+// Parser XML acquéreur
+function parseAcqXml(xmlText, filename){
+  try{
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlText, 'application/xml');
+    const root = doc.documentElement;
+    if(root.tagName !== 'arcane_acquereur') return null;
+    const get = (tag) => { const el=root.querySelector(tag); return el?el.textContent.trim():''; };
+    const acq = {
+      id: 'acq_'+Date.now()+'_'+Math.random().toString(36).slice(2,6),
+      nom: get('nom'), type: get('type'), desc: get('desc'),
+      secteurs: get('secteurs'), geo: get('geo'),
+      caMin: parseInt(get('caMin'))||0, caMax: parseInt(get('caMax'))||0,
+      ebiMin: parseInt(get('ebiMin'))||0, budget: parseInt(get('budget'))||0,
+      kw: get('kw'), contact: get('contact'),
+      words: null, updatedAt: new Date().toLocaleDateString('fr-FR')
+    };
+    acq.words = buildAcqCloud(acq);
+    return acq;
+  }catch(e){ console.error('parseAcqXml:', e); return null; }
+}
+
+// Sérialiser une opportunité en XML (déléguer à la même logique que Teaser Generator)
+function buildOppXml(opp){
+  const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+  const f = opp.formulaire||{};
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<arcane_document type="preanalyse" version="2.0" date="${new Date().toISOString().slice(0,10)}" app="teaser_generator">
+  <metadata><nom_societe>${esc(opp.nom)}</nom_societe><region>${esc(opp.region)}</region><secteur>${esc(opp.secteur)}</secteur><annee>${esc(opp.annee)}</annee></metadata>
+  <formulaire>${Object.entries(f).map(([k,v])=>`<${k}>${esc(v)}</${k}>`).join('')}</formulaire>
+  <donnees_gpt></donnees_gpt>
+  <html_edite><![CDATA[${opp.htmlEdite||''}]]></html_edite>
+</arcane_document>`;
+}
+
+// Sérialiser un acquéreur en XML
+function buildAcqXml(acq){
+  const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<arcane_acquereur version="1.0" date="${new Date().toISOString().slice(0,10)}">
+  <nom>${esc(acq.nom)}</nom><type>${esc(acq.type)}</type><desc>${esc(acq.desc)}</desc>
+  <secteurs>${esc(acq.secteurs)}</secteurs><geo>${esc(acq.geo)}</geo>
+  <caMin>${acq.caMin||0}</caMin><caMax>${acq.caMax||0}</caMax>
+  <ebiMin>${acq.ebiMin||0}</ebiMin><budget>${acq.budget||0}</budget>
+  <kw>${esc(acq.kw)}</kw><contact>${esc(acq.contact)}</contact>
+</arcane_acquereur>`;
+}
+
+// ══ INIT ══════════════════════════════════════════════════════════════════════
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePreanalyseModal();});
+// Démarrage Drive si token disponible
+setTimeout(checkDriveReady, 1500); // attendre que gapi soit chargé
+const sk=localStorage.getItem('tg_okey');
+if(sk){document.getElementById('apikey').value=sk;document.getElementById('apist').textContent='✓';document.getElementById('apist').style.color='var(--gold)';}
+loadState();
+renderAcqList();
+</script>
+</body>
+</html>
